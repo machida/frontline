@@ -1,7 +1,118 @@
-/*
-  Welcome to Compass.
-  In this file you should write your main styles. (or centralize your imports)
-  Import this file using the following HTML or equivalent:
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-
 @import compass/reset
+@import compass/utilities
+@import compass/css3
+
+body
+  background: image_url("body.gif")
+  color: #cad5d7
+header
+  .header
+    +clearfix
+    h1
+      a
+        line-height: 68px
+        float: left
+        color: #cad5d7
+        font-size: 30px
+        text-decoration: none
+        font-weight: bold
+    .times
+      line-height: 68px
+      float: right
+      .now
+        float: left
+        margin: 0 10px 0 0
+      .remain
+        float: left
+        background: #2a3031
+        line-height: 50px
+        margin: 10px 0 0 0
+        font-size: 40px
+        padding: 0 20px
+        +border-radius(4px)
+    &:after
+      content: ""
+      display: block
+      height: 4px
+      background: #272d2e
+      border-bottom: #495051 solid 1px
+      width: 100%
+      margin: 68px 0 0 0
+  .body
+    padding: 4px 0
+    clear: both
+    +clearfix
+    .members
+      ul
+        li
+          display: inline
+          a
+            display: block
+            float: left
+            margin: 0 10px 0 0
+            background: rgba(0, 0, 0, .2)
+            +border-radius(25px)
+            padding: 5px
+            width: 40px
+            height: 40px
+            +box-shadow(#495051 0 1px 0)
+            img
+              width: 40px
+              height: auto
+              +border-radius(20px)
+    &:after
+      content: ""
+      display: block
+      height: 1px
+      background: #272d2e
+      border-bottom: #495051 solid 1px
+      width: 100%
+      margin: 54px 0 0 0
+    .states
+      float: right
+      ul
+        li
+          display: inline
+          a
+            display: block
+            float: left
+            line-height: 40px
+            background: #fff
+            margin: 5px 0 0 0
+            text-decoration: none
+            +border-radius(4px)
+            padding: 0 16px
+  
+#body
+  padding: 16px 40px
+  .members
+    .member
+      float: left
+      width: 280px
+      .header
+        ul
+          float: right
+        .icon
+          a
+            width: 100px
+            height: 100px
+            padding: 10px
+            background: rgba(0, 0, 0, .2)
+            +border-radius(60px)
+            display: block
+            +box-shadow(#495051 0 1px 0)
+            img
+              float: left
+              width: 100px
+              height: auto
+              +border-radius(50px)
+      .body
+        clear: both
+        .now
+          padding: 12px
+          background: #000
+          +border-radius(4px)
+          +clearfix
+          p
+            font-size: 13px
+            line-height: 1.6
