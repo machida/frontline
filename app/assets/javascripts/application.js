@@ -34,5 +34,5 @@ $(document).ready(function() {
 //timesの位置
 $(document).ready(function() {
           var headerw = $("#wrapper").width();
-          $('#header .times').css("left",headerw-270);
+          $('#header .times').css("left",headerw-320);
 });
