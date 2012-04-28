@@ -4,6 +4,8 @@
     <title>Ruby on Rails: Welcome aboard</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <link href="assets/application.css" media="screen" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/application.js"></script>
   </head>
   <body>
     <div id="wrapper">
@@ -13,12 +15,6 @@
       <header>
         <div class="header">
           <h1><a href="/">パーティの名前</a></h1>
-          <div class="times">
-            <div class="now">10:00</div>
-            <div class="remain">08:00</div>
-          </div>
-        </div>
-        <div class="body">
           <nav class="members">
             <ul>
               <li><a href="">all</a></li>
@@ -29,12 +25,9 @@
               <li><a href=""><img src="https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg" alt="machida" class="avatar size128"></a></li>
             </ul>
           </nav>
-          <div class="states">
-            <ul>
-              <li><a href="">集中</a></li>
-              <li><a href="">休憩中</a></li>
-              <li><a href="">雑用中</a></li>
-            </ul>
+          <div class="times">
+            <div class="now">10:00</div>
+            <div class="remain">08:00</div>
           </div>
         </div>
       </header>
@@ -45,20 +38,21 @@
       <td>
         <div class="member">
           <div class="header">
+            <div class="icon">
+              <a href=""><img src="https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg" alt="machida" class="avatar size128"></a>
+            </div>
             <div class="information">
               <ul>
                 <li class="name"><a href="">machida</a></li>
                 <li class="state">集中</li>
               </ul>
             </div>
-            <div class="icon">
-              <a href=""><img src="https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg" alt="machida" class="avatar size128"></a>
             </div>
             <div class="body">
               <div class="current">
                 <h2>Current</h2>
                 <div class="doing">
-                  <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
+                  <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・</p>
                   <div class="actions">
                     <ul>
                       <li><a href="">Help</a></li>
@@ -68,7 +62,15 @@
                   </div>
                 </div>
                 <div class="activities">
+                  <div class="label">
                   <h3>Activities</h3>
+                  </div>
+                  <div class="new">
+                    <form name="form1">
+                        <textarea name="content" id="content" class="mceEditor" rows="3" cols="15" tabindex="2"></textarea>
+                        <input type="submit" name="publish" id="publish" value="POST">
+                    </form>
+                  </div>
                   <ul>
                     <li><p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p></li>
                     <li><p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p></li>
@@ -83,6 +85,7 @@
               <div class="footer">
                 <div class="tasks">
                   <h2>Tasks</h2>
+                  <p class="add">タスクを登録</p>
                   <ul>
                     <li>
                       <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
@@ -104,101 +107,34 @@
                   </div>              
                 </div>
               </div>
-            </div>
           </div><!-- .member -->
           </td>
           <td>
-          <div class="member">
-            <div class="header">
-              <div class="information">
-                <ul>
-                  <li class="name"><a href="">machida</a></li>
-                  <li class="state">集中</li>
-                </ul>
-              </div>
-              <div class="icon">
-                <a href=""><img src="https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg" alt="machida" class="avatar size128"></a>
-              </div>
-              <div class="body">
-                <div class="current">
-                  <h2>Current</h2>
-                  <div class="doing">
-                    <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
-                    <div class="actions">
-                      <ul>
-                        <li><a href="">Help</a></li>
-                        <li><a href="">保留</a></li>
-                        <li><a href="">Done</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="activities">
-                    <h3>Activities</h3>
-                    <ul>
-                      <li><p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p></li>
-                      <li><p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p></li>
-                      <li><p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p></li>
-                      <li><p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p></li>
-                      <li><p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p></li>
-                      <li><p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p></li>
-                      <li><p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="footer">
-                  <div class="tasks">
-                    <h2>Tasks</h2>
-                    <ul>
-                      <li>
-                        <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
-                        <p><a href="">Start</a></p>
-                      </li>
-                      <li>
-                        <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
-                        <p><a href="">Start</a></p>
-                      </li>
-                      <li>
-                        <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
-                        <p><a href="">Start</a></p>
-                      </li>
-                      <li>
-                        <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
-                        <p><a href="">Start</a></p>
-                      </li>
-                    </ul>
-                    </div>              
-                  </div>
-                </div>
-              </div>
-            </div>
-            </td>
-            <td>
             <div class="member">
               <div class="header">
+                <div class="icon">
+                  <a href=""><img src="https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg" alt="machida" class="avatar size128"></a>
+                </div>
                 <div class="information">
                   <ul>
                     <li class="name"><a href="">machida</a></li>
                     <li class="state">集中</li>
                   </ul>
                 </div>
-                <div class="icon">
-                  <a href=""><img src="https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg" alt="machida" class="avatar size128"></a>
                 </div>
                 <div class="body">
                   <div class="current">
                     <h2>Current</h2>
                     <div class="doing">
                       <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
-                      <div class="actions">
-                        <ul>
-                          <li><a href="">Help</a></li>
-                          <li><a href="">保留</a></li>
-                          <li><a href="">Done</a></li>
-                        </ul>
-                      </div>
                     </div>
                     <div class="activities">
+                      <div class="label">
                       <h3>Activities</h3>
+                      </div>
+                      <div class="new">
+                      
+                      </div>
                       <ul>
                         <li><p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p></li>
                         <li><p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p></li>
@@ -213,6 +149,7 @@
                   <div class="footer">
                     <div class="tasks">
                       <h2>Tasks</h2>
+                      <p class="add">タスクを登録</p>
                       <ul>
                         <li>
                           <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
@@ -234,74 +171,182 @@
                       </div>              
                     </div>
                   </div>
-                </div>
-              </div>
+              </div><!-- .member -->
               </td>
               <td>
-          <div class="member">
-            <div class="header">
-              <div class="information">
-                <ul>
-                  <li class="name"><a href="">machida</a></li>
-                  <li class="state">集中</li>
-                </ul>
-              </div>
-              <div class="icon">
-                <a href=""><img src="https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg" alt="machida" class="avatar size128"></a>
-              </div>
-              <div class="body">
-                <div class="current">
-                  <h2>Current</h2>
-                  <div class="doing">
-                    <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
-                    <div class="actions">
+                <div class="member">
+                  <div class="header">
+                    <div class="icon">
+                      <a href=""><img src="https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg" alt="machida" class="avatar size128"></a>
+                    </div>
+                    <div class="information">
                       <ul>
-                        <li><a href="">Help</a></li>
-                        <li><a href="">保留</a></li>
-                        <li><a href="">Done</a></li>
+                        <li class="name"><a href="">machida</a></li>
+                        <li class="state">集中</li>
                       </ul>
                     </div>
-                  </div>
-                  <div class="activities">
-                    <h3>Activities</h3>
-                    <ul>
-                      <li><p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p></li>
-                      <li><p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p></li>
-                      <li><p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p></li>
-                      <li><p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p></li>
-                      <li><p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p></li>
-                      <li><p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p></li>
-                      <li><p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="footer">
-                  <div class="tasks">
-                    <h2>Tasks</h2>
-                    <ul>
-                      <li>
-                        <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
-                        <p><a href="">Start</a></p>
-                      </li>
-                      <li>
-                        <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
-                        <p><a href="">Start</a></p>
-                      </li>
-                      <li>
-                        <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
-                        <p><a href="">Start</a></p>
-                      </li>
-                      <li>
-                        <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
-                        <p><a href="">Start</a></p>
-                      </li>
-                    </ul>
-                    </div>              
-                  </div>
-                </div>
-              </div>
-            </div><!-- .member -->
-            </td>
+                    </div>
+                    <div class="body">
+                      <div class="current">
+                        <h2>Current</h2>
+                        <div class="doing">
+                          <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
+                        </div>
+                        <div class="activities">
+                          <div class="label">
+                          <h3>Activities</h3>
+                          </div>
+                          <div class="new">
+                          
+                          </div>
+                          <ul>
+                            <li><p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="footer">
+                        <div class="tasks">
+                          <h2>Tasks</h2>
+                          <p class="add">タスクを登録</p>
+                          <ul>
+                            <li>
+                              <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
+                              <p><a href="">Start</a></p>
+                            </li>
+                            <li>
+                              <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
+                              <p><a href="">Start</a></p>
+                            </li>
+                            <li>
+                              <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
+                              <p><a href="">Start</a></p>
+                            </li>
+                            <li>
+                              <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
+                              <p><a href="">Start</a></p>
+                            </li>
+                          </ul>
+                          </div>              
+                        </div>
+                      </div>
+                  </div><!-- .member -->
+                  </td>
+                <td>
+                  <div class="member">
+                    <div class="header">
+                      <div class="icon">
+                        <a href=""><img src="https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg" alt="machida" class="avatar size128"></a>
+                      </div>
+                      <div class="information">
+                        <ul>
+                          <li class="name"><a href="">machida</a></li>
+                          <li class="state">集中</li>
+                        </ul>
+                      </div>
+                      </div>
+                      <div class="body">
+                        <div class="current">
+                          <h2>Current</h2>
+                          <div class="doing">
+                            <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
+                          </div>
+                          <div class="activities">
+                            <div class="label">
+                            <h3>Activities</h3>
+                            </div>
+                            <div class="new">
+                            
+                            </div>
+                            <ul>
+                              <li><p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="footer">
+                          <div class="tasks">
+                            <h2>Tasks</h2>
+                            <p class="add">タスクを登録</p>
+                            <ul>
+                              <li>
+                                <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
+                                <p><a href="">Start</a></p>
+                              </li>
+                              <li>
+                                <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
+                                <p><a href="">Start</a></p>
+                              </li>
+                              <li>
+                                <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
+                                <p><a href="">Start</a></p>
+                              </li>
+                              <li>
+                                <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
+                                <p><a href="">Start</a></p>
+                              </li>
+                            </ul>
+                            </div>              
+                          </div>
+                        </div>
+                    </div><!-- .member -->
+                    </td>
+                  <td>
+                    <div class="member">
+                      <div class="header">
+                        <div class="icon">
+                          <a href=""><img src="https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg" alt="machida" class="avatar size128"></a>
+                        </div>
+                        <div class="information">
+                          <ul>
+                            <li class="name"><a href="">machida</a></li>
+                            <li class="state">集中</li>
+                          </ul>
+                        </div>
+                        </div>
+                        <div class="body">
+                          <div class="current">
+                            <h2>Current</h2>
+                            <div class="doing">
+                              <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
+                            </div>
+                            <div class="activities">
+                              <div class="label">
+                              <h3>Activities</h3>
+                              </div>
+                              <div class="new">
+                              
+                              </div>
+                              <ul>
+                                <li><p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="footer">
+                            <div class="tasks">
+                              <h2>Tasks</h2>
+                              <p class="add">タスクを登録</p>
+                              <ul>
+                                <li>
+                                  <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
+                                  <p><a href="">Start</a></p>
+                                </li>
+                                <li>
+                                  <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
+                                  <p><a href="">Start</a></p>
+                                </li>
+                                <li>
+                                  <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
+                                  <p><a href="">Start</a></p>
+                                </li>
+                                <li>
+                                  <p>『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ</p>
+                                  <p><a href="">Start</a></p>
+                                </li>
+                              </ul>
+                              </div>              
+                            </div>
+                          </div>
+                      </div><!-- .member -->
+                      </td>
             </tr>
             </table>
         </div>

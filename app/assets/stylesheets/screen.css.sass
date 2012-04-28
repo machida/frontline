@@ -2,6 +2,7 @@
 @import compass/utilities
 @import compass/css3
 
+
 body
   background: image_url("body.gif")
   color: #cad5d7
@@ -12,7 +13,7 @@ header
   .header
     +clearfix
     h1
-      padding: 0 0 0 20px
+      padding: 0 0 0 16px
       a
         line-height: 52px
         float: left
@@ -20,6 +21,26 @@ header
         font-size: 30px
         text-decoration: none
         font-weight: bold
+    nav.members
+      padding: 4px 0 0 16px
+      float: left
+      ul
+        li
+          display: inline
+          a
+            display: block
+            float: left
+            margin: 0 8px 0 0
+            background: rgba(0, 0, 0, .2)
+            +border-radius(22px)
+            padding: 3px
+            width: 38px
+            height: 38px
+            +box-shadow(#495051 0 1px 0)
+            img
+              width: 38px
+              height: auto
+              +border-radius(20px)
     .times
       line-height: 52px
       float: right
@@ -38,91 +59,72 @@ header
     &:after
       content: ""
       display: block
-      height: 1px
-      background: #272d2e
-      border-bottom: #495051 solid 1px
-      width: 100%
-      margin: 52px 0 0 0
-  .body
-    padding: 4px 0 0 0
-    clear: both
-    +clearfix
-    nav.members
-      padding: 0 0 0 20px
-      ul
-        li
-          display: inline
-          a
-            display: block
-            float: left
-            margin: 0 10px 0 0
-            background: rgba(0, 0, 0, .2)
-            +border-radius(22px)
-            padding: 3px
-            width: 38px
-            height: 38px
-            +box-shadow(#495051 0 1px 0)
-            img
-              width: 38px
-              height: auto
-              +border-radius(20px)
-    &:after
-      content: ""
-      display: block
       height: 4px
       background: #272d2e
       border-bottom: #495051 solid 1px
       width: 100%
-      margin: 48px 0 0 0
-    .states
-      float: right
-      padding: 0 20px 0 0
-      ul
-        li
-          display: inline
-          a
-            display: block
-            float: left
-            line-height: 36px
-            background: #fff
-            margin: 3px 0 0 0
-            text-decoration: none
-            +border-radius(4px)
-            padding: 0 16px
-  
+      margin: 52px 0 0 0
 #body
-  padding: 8px 40px 0 20px
-  overflow-x: auto
-  overflow-y: hidden
-  .members   
+  .members
+    table
+      tr
+        td
+          vertical-align: top
     .member
+      height: 100%
+      overflow: auto
       float: left
-      width: 280px
-      padding: 0 18px 0 0
+      width: 290px
+      border-right: #272d2e solid 3px
+      margin: -1px 0 0 0
       +clearfix
       .header
+        background: rgba(0, 0, 0, .2)
+        padding: 6px 10px
+        +clearfix
         .information
+          float: left
           ul
-            float: right
+            li
+              display: block
+            li.name
+              padding: 2px 0 6px 0
+              white-space: nowrap
+              overflow: hidden
+              a
+                color: #CAD5D7
+                font-size: 16px
+                font-weight: bold
+                text-decoration: none
+                line-height: 1.4
+            li.state
+              text-align: center
+              width: 90px
+              background: #000
+              line-height: 24px
+              font-size: 13px
+              +border-radius(6px)
         .icon
+          float: left
+          padding: 0 10px 0 0
           a
-            width: 60px
-            height: 60px
+            width: 50px
+            height: 50px
             padding: 4px
             background: rgba(0, 0, 0, .2)
-            +border-radius(34px)
+            +border-radius(28px)
             display: block
             +box-shadow(#495051 0 1px 0)
             img
-              float: left
-              width: 60px
+              width: 50px
               height: auto
               +border-radius(30px)
       .body
         clear: both
+        overflow-y: auto
+        overflow-x: hidden
         .current
           +clearfix
-          margin: -20px 0 0 0
           h2
             float: right
             background: #000
@@ -131,35 +133,50 @@ header
             font-size: 11px
             font-weight: bold
             +border-radius(4px 4px 0 0)
+            display: none
           .doing
             clear: both
             padding: 10px
-            background: #000
-            +border-radius(4px 0 0 0)
+            background: rgba(0, 0, 0, .6)
             +clearfix
-            margin: 0
             p
               font-size: 12px
               line-height: 1.6
               color: #fff
-          .actions
-            ul
-              float: right
-              li
-                display: inline
+            .actions
+              display: none
+            &:hover
+              .actions
+                padding: 8px 0 0 0
+                display: block
+                +clearfix
+                ul
+                  float: right
+                  display: block
+                  +border-radius(4px)
+                  overflow: hidden
+                  li
+                    display: inline
+                    a
+                      display: block
+                      float: left
+                      font-size: 13px
+                      line-height: 28px
+                      background: #fff
+                      padding: 0 10px
+                      text-decoration: none
           .activities
             clear: both
-            padding: 10px
-            background: #2A3031
-            +border-radius(0 0 4px 4px)
+            padding: 0 10px 10px
             +clearfix
             margin: 0 0 18px 0
-            h2
-              margin: 0 0 10px 0
+            .label
+              padding: 10px 0
+              h2
             ul
               li
                 +clearfix
-                border-bottom: dotted #aaa 1px
+                border-bottom: dotted #666 1px
                 display: block
                 padding: 14px 0
                 &:first-child
@@ -179,10 +196,10 @@ header
                 line-height: 1.6
 
 div#main
-  margin: 0 0 0 60px
+  margin: 0 0 0 50px
 nav#global
   margin-bottom: -9999px
   padding-bottom: 9999px
   background: #000
   float: left
-  width: 60px
+  width: 50px

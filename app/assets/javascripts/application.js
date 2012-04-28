@@ -13,3 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function(){
+     adjust();
+     $(window).resize(function(){
+          adjust();
+     })
+　　　function adjust(){
+          var h = $(window).height(); //ウィンドウの高さ
+          $('.member .body').css("height",h-145); //可変部分の高さを適用
+     }
+});
