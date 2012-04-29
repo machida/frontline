@@ -26,30 +26,62 @@
         - @party.users.each do |user|
           = content_tag_for :td, user do
             .member
-              %h1= user.name
-              = image_tag user.image
-              #current
-                %h2 current
-                - user.tasks.current(@party.id).each do |task|
-                  = div_for task do
-                    = task.content
-                    = link_to "hold", hold_party_task_path(@party, task)
-                    = link_to "finish", finish_party_task_path(@party, task)
-              - if user.id == current_user.id
-                = form_for [@party, user.tasks.build] do |f|
-                  = f.text_area :content, :rows => 3, :cols => 30
-                  = f.submit
-              #backlog
-                %h2 backlog
-                - user.tasks.backlog(@party.id).each do |task|
-                  = div_for task do
-                    = task.content
-                    = link_to "start", start_party_task_path(@party, task)
-              #done
-                %h2 done
-                - user.tasks.done(@party.id).each do |task|
-                  = div_for task do
-                    = task.content
+              .header
+                %h1.icon
+                  %a{:href => ""}
+                    %img.avatar.size128{:alt => "machida", :src => "https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg"}/
+                .information
+                  %ul
+                    %li.name
+                      %a{:href => ""} machida
+                    %li.state 休憩中
+              .body
+                .current
+                  .doing
+                    %p 『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・35.685753 , 139.765293
+                    .actions
+                      %ul
+                        %li
+                          %a{:href => ""} Help
+                        %li
+                          %a{:href => ""} 保留
+                        %li
+                          %a{:href => ""} Done
+                  .activities
+                    .label
+                      %h2 Activities
+                    .add
+                      %form{:name => "form1"}
+                        %textarea#content.mceEditor{:cols => "15", :name => "content", :rows => "3", :tabindex => "2"}
+                        %input#publish{:name => "publish", :type => "submit", :value => "POST"}
+                    %ul
+                      %li
+                        .icon
+                          %a{:href => ""}
+                            %img.avatar.size128{:alt => "machida", :src => "https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg"}/
+                        %p 『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ
+                .footer
+                  .backlog
+                    .label
+                      %h2 Backlog
+                    .add
+                      - if user.id == current_user.id
+                        = form_for [@party, user.tasks.build] do |f|
+                          = f.text_area :content, :rows => 3, :cols => 30
+                          = f.submit
+                    %ul
+                      - user.tasks.backlog(@party.id).each do |task|
+                        = content_tag_for :li, task do
+                          %p= task.content
+                          %p= link_to "start", start_party_task_path(@party, task)
+                    
+                  .done
+                    .label
+                      %h2 done
+                    - user.tasks.done(@party.id).each do |task|
+                      = content_tag_for :li, task do
+                        %p= task.content
+                                        
 = link_to 'Edit', edit_party_path(@party)
 |
 \#{link_to 'Back', parties_path}
