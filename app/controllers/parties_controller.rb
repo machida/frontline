@@ -4,10 +4,11 @@ class PartiesController < ApplicationController
 
   def index
     if user_signed_in?
-      @parties = current_user.parties
+      @parties = current_user.invited_parties
     else
       @parties = Party.scoped
     end
+    @parties = @parties.order("created_at desc")
     respond_with @parties
   end
 
@@ -22,7 +23,7 @@ class PartiesController < ApplicationController
   end
 
   def edit
-    @party = Party.find(params[:id])
+    @party = current_user.parties.find(params[:id])
     respond_with @party
   end
 
@@ -32,7 +33,7 @@ class PartiesController < ApplicationController
 
     respond_to do |format|
       if @party.save
-        format.html { redirect_to parties_url, notice: 'Party was successfully created.' }
+        format.html { redirect_to @party, notice: 'Party was successfully created.' }
         format.json { render json: @party, status: :created, location: @party }
       else
         format.html { render action: "new" }
@@ -44,11 +45,11 @@ class PartiesController < ApplicationController
   # PUT /parties/1
   # PUT /parties/1.json
   def update
-    @party = Party.find(params[:id])
+    @party = current_user.parties.find(params[:id])
 
     respond_to do |format|
       if @party.update_attributes(params[:party])
-        format.html { redirect_to parties_url, notice: 'Party was successfully updated.' }
+        format.html { redirect_to @party, notice: 'Party was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -60,7 +61,7 @@ class PartiesController < ApplicationController
   # DELETE /parties/1
   # DELETE /parties/1.json
   def destroy
-    @party = Party.find(params[:id])
+    @party = current_user.parties.find(params[:id])
     @party.destroy
 
     respond_to do |format|
