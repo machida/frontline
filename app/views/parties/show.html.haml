@@ -1,0 +1,18 @@
+%p#notice= notice
+%p
+  %b Name:
+  = @party.name
+%p
+  %b Description:
+  = @party.description
+%p
+  %b End at:
+  = @party.end_at
+%p
+  %b Member:
+  %ul
+    - @party.users.each do |user|
+      %li= user.name
+= link_to 'Edit', edit_party_path(@party)
+|
+\#{link_to 'Back', parties_path}

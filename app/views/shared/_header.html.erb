@@ -1,8 +1,0 @@
-<%= link_to "HOME", root_path %>
-<% if user_signed_in? %>
-  <%= current_user.name %>
-  <%= link_to "Sign Out", signout_path %>
-<% else %>
-  <%= link_to "Sign in with Twitter", "/auth/twitter" %>
-<% end %>
-<hr />
