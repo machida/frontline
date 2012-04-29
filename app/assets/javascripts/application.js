@@ -13,10 +13,3 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-
-$(function () {
-    // デザイン調整
-    $('.member .body').css("height", $(window).height() - 145);
-    $('#header').css("width", $(".members table").width());
-    $('#header .times').css("left", $("#wrapper").width() - 320);
-});
