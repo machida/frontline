@@ -87,15 +87,28 @@ class TasksController < ApplicationController
   end
 
   def start
-    raise params
+    @task = current_user.tasks.find(params[:id])
+    unless current_user.tasks.current(params[:party_id]).exists?
+      @task.state = "current"
+      @task.save
+      redirect_to @task.party, notice: 'Task was successfully started.'
+    else
+      redirect_to @task.party, notice: 'Task was already current.'
+    end
   end
 
   def hold
-    raise params
+    @task = current_user.tasks.find(params[:id])
+    @task.state = "backlog"
+    @task.save
+    redirect_to @task.party, notice: 'Task was successfully holded.'
   end
 
   def finish
-    raise params
+    @task = current_user.tasks.find(params[:id])
+    @task.state = "done"
+    @task.save
+    redirect_to @task.party, notice: 'Task was successfully finished.'
   end
 
 end

@@ -21,11 +21,18 @@
   <b>Member:</b>
   <% @party.users.each do |user| %>
     <%= div_for user do %>
-      <%= user.name %>
-      user tasks
+<h1><%= user.name %></h1>
+<%= image_tag user.image %>
 
 <div id="current">
 <h2>current</h2>
+<% user.tasks.current(@party.id).each do |task| %>
+  <%= div_for task do %>
+    <%= task.content %>
+    <%= link_to "hold", hold_party_task_path(@party, task) %>
+    <%= link_to "finish", finish_party_task_path(@party, task) %>
+  <% end %>
+<% end %>
 </div>
 
 <% if user.id == current_user.id %>
@@ -37,7 +44,7 @@
 
 <div id="backlog">
 <h2>backlog</h2>
-<% user.tasks.backlog.each do |task| %>
+<% user.tasks.backlog(@party.id).each do |task| %>
   <%= div_for task do %>
     <%= task.content %>
     <%= link_to "start", start_party_task_path(@party, task) %>
@@ -47,6 +54,11 @@
 
 <div id="done">
 <h2>done</h2>
+<% user.tasks.done(@party.id).each do |task| %>
+  <%= div_for task do %>
+    <%= task.content %>
+  <% end %>
+<% end %>
 </div>
 
     <% end %>
