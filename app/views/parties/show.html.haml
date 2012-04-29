@@ -14,7 +14,7 @@
     .times
       .now 10:00
       .remain
-        = @party.end_at
+        = @party.end_at.to_date.to_s(:db)
       .leave
         %a{:href => ""} 退席
 
@@ -28,6 +28,10 @@
             .member
               %h1= user.name
               = image_tag user.image
+              - join = user.joins.find_by_party_id(@party.id)
+              = form_for join do |f|
+                = f.select :state, Join::STATE
+                = f.submit
               #current
                 %h2 current
                 - user.tasks.current(@party.id).each do |task|
