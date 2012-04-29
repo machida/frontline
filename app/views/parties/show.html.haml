@@ -6,21 +6,11 @@
       %ul
         %li
           %a{:href => ""} all
-        %li
-          %a{:href => ""}
-            %img.avatar.size128{:alt => "machida", :src => "https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg"}/
-        %li
-          %a{:href => ""}
-            %img.avatar.size128{:alt => "machida", :src => "https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg"}/
-        %li
-          %a{:href => ""}
-            %img.avatar.size128{:alt => "machida", :src => "https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg"}/
-        %li
-          %a{:href => ""}
-            %img.avatar.size128{:alt => "machida", :src => "https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg"}/
-        %li
-          %a{:href => ""}
-            %img.avatar.size128{:alt => "machida", :src => "https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg"}/
+        
+        - @party.users.each do |user|
+          = content_tag_for :li, user do
+            %a{:href => ""}
+              = image_tag user.image
     .times
       .now 10:00
       .remain
