@@ -2,7 +2,13 @@ Frontline::Application.routes.draw do
 
   resources :joins
 
-  resources :parties
+  resources :parties do
+    resources :tasks do
+      get "start", :on => :member
+      get "hold", :on => :member
+      get "finish", :on => :member
+    end
+  end
 
   get "sessions/create"
 
