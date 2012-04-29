@@ -3,6 +3,10 @@ class Task < ActiveRecord::Base
   belongs_to :user
   belongs_to :party
 
+  validates :content, :user_id, :presence => true
+
+  STATE = %w(current backlog done)
+
   def self.current(party_id)
     where(state: "current", party_id: party_id)
   end

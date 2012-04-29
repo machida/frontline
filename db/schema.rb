@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(:version => 20120429045006) do
   create_table "joins", :force => true do |t|
     t.integer  "user_id"
     t.integer  "party_id"
+    t.string   "state"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

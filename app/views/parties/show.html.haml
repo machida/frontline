@@ -14,7 +14,7 @@
     .times
       .now 10:00
       .remain
-        = @party.end_at
+        = @party.end_at.to_date.to_s(:db)
       .leave
         %a{:href => ""} 退席
 
@@ -34,7 +34,11 @@
                   %ul
                     %li.name
                       %a{:href => ""} machida
-                    %li.state 休憩中
+                    %li.state
+                      - join = user.joins.find_by_party_id(@party.id)
+                      = form_for join do |f|
+                        = f.select :state, Join::STATE
+                        = f.submit
               .body
                 .current
                   .doing
