@@ -1,3 +1,15 @@
+:javascript
+  setTimeout(timer, 1000);
+  function timer() {
+    var t = new Date();
+    var h = t.getHours() + ":" + t.getMinutes() + ":" + t.getSeconds();
+    console.log(h);
+    $(".now").html(h)
+    $(".remain").html("20:00")
+    setTimeout(timer, 1000);
+  }
+= debug @party.end_at.to_s(:time)
+
 - content_for :header do
   .header
     %h1= link_to @party.name, @party_path
