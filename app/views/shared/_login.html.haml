@@ -1,0 +1,18 @@
+.login
+  %h1 FrontLine
+  %form#loginform{:action => "http://fjord.jp/wp-login.php", :method => "post", :name => "loginform"}
+    %ul
+      %li.user
+        %label{:for => "user_login"}
+          ユーザー名
+        %input#user_login.input{:name => "log", :size => "20", :tabindex => "10", :type => "text", :value => ""}/
+      %li.password
+        %label{:for => "user_pass"}
+          パスワード
+        %input#user_pass.input{:name => "pwd", :size => "20", :tabindex => "20", :type => "password", :value => ""}/
+      %li.forgetmenot
+        %label{:for => "rememberme"}
+        %input#rememberme{:name => "rememberme", :tabindex => "90", :type => "checkbox", :value => "forever"} ログイン状態を保存する
+      %li.submit
+        %input#wp-submit.button-primary{:name => "wp-submit", :tabindex => "100", :type => "submit", :value => "ログイン"}
+  %p.twitter= link_to "Sign in with Twitter", "/auth/twitter"

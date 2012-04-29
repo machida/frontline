@@ -5,13 +5,17 @@
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
-  %body(class="#{controller_name} #{controller_name}_#{action_name}")
-    #wrapper
-      %nav#global
-        = render 'shared/global_nav'
-      #main
-        %header#header
-          = yield :header
-        #body
-          = yield
-          = render 'shared/footer'
+  - if user_signed_in?
+    %body(class="#{controller_name} #{controller_name}_#{action_name}")
+      #wrapper
+        %nav#global
+          = render 'shared/global_nav'
+        #main
+          %header#header
+            = yield :header
+          #body
+            = yield
+            = render 'shared/footer'
+  - else
+    %body#login
+      = render 'shared/login'
