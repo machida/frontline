@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %b User:
+  = @join.user_id
+%p
+  %b Party:
+  = @join.party_id
+= link_to 'Edit', edit_join_path(@join)
+|
+\#{link_to 'Back', joins_path}

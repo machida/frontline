@@ -1,0 +1,17 @@
+%h1 Listing joins
+%table
+  %tr
+    %th User
+    %th Party
+    %th
+    %th
+    %th
+  - @joins.each do |join|
+    %tr
+      %td= join.user_id
+      %td= join.party_id
+      %td= link_to 'Show', join
+      %td= link_to 'Edit', edit_join_path(join)
+      %td= link_to 'Destroy', join, confirm: 'Are you sure?', method: :delete
+%br/
+= link_to 'New Join', new_join_path
