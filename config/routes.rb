@@ -1,4 +1,20 @@
 Frontline::Application.routes.draw do
+
+  resources :joins
+
+  resources :parties
+
+  get "sessions/create"
+
+  get "sessions/destroy"
+
+  resources :users
+
+  match '/auth/:provider/callback', to: 'sessions#create'
+  match "/signout" => "sessions#destroy", :as => :signout
+
+  root :to => 'parties#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
