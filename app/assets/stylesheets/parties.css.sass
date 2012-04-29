@@ -1,0 +1,93 @@
+@import compass/reset
+@import compass/utilities
+@import compass/css3
+
+
+body
+  background: image_url("body.gif")
+  color: #cad5d7
+#wrapper
+  overflow-y: hidden
+  min-width: 1000px
+header
+  border-bottom: #495051 solid 1px
+  min-width: 100%
+  .header
+    border-bottom: #272d2e 4px solid
+    position: relative
+    +clearfix
+    h1
+      padding: 0 0 0 16px
+      a
+        line-height: 52px
+        float: left
+        color: #cad5d7
+        font-size: 30px
+        text-decoration: none
+        font-weight: bold
+    
+#body
+  .parties
+    padding: 16px  16px
+    +clearfix
+    .party
+      width: 600px
+      padding: 8px 10px
+      background: rgba(0, 0, 0, .2)
+      float: left
+      position: relative
+      margin: 0 0 10px 0
+      h2
+        margin: 0 0 8px 0
+        a
+          color: #cad5d7
+          text-decoration: none
+          font-size: 18px
+      .actions
+        position: absolute
+        right: 12px
+        bottom: 12px
+        ul
+          li
+            display: inline
+            a
+              color: #182640
+              font-weight: bold
+              display: block
+              +border-radius(4px)
+              font-size: 13px
+              padding: 0 10px
+              line-height: 24px
+              text-decoration: none
+              background-color: rgb(103,221,238)
+              @include filter-gradient(#67ddee, #13adc3, vertical)
+              $experimental-support-for-svg: true
+              @include background-image(linear-gradient(top,  rgba(103,221,238,1) 0%,rgba(19,173,195,1) 100%))
+              
+      .members
+        li
+          display: inline
+          a
+            display: block
+            float: left
+            margin: 0 8px 0 0
+            background: rgba(0, 0, 0, .2)
+            +border-radius(22px)
+            padding: 3px
+            width: 38px
+            height: 38px
+            +box-shadow(#495051 0 1px 0)
+            img
+              width: 38px
+              height: auto
+              +border-radius(20px)
+
+div#main
+  margin: 0 0 0 50px
+
+nav#global
+  margin-bottom: -9999px
+  padding-bottom: 9999px
+  background: #000
+  float: left
+  width: 50px
