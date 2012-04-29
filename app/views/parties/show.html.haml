@@ -42,15 +42,16 @@
               .body
                 .current
                   .doing
-                    %p 『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・35.685753 , 139.765293
-                    .actions
-                      %ul
-                        %li
-                          %a{:href => ""} Help
-                        %li
-                          %a{:href => ""} 保留
-                        %li
-                          %a{:href => ""} Done
+                    - user.tasks.current(@party.id).each do |task|
+                      = div_for task do
+                        %p= task.content
+                        .actions
+                          %ul
+                            %li= link_to "hold", hold_party_task_path(@party, task)
+                            %li= link_to "finish", finish_party_task_path(@party, task)
+                            %li
+                              %a{:href => ""} HELP
+                        
                   .activities
                     .label
                       %h2 Activities
