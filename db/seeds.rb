@@ -8,7 +8,6 @@
 
 User.create(name: 'yoshida')
 User.create(name: 'naoki')
-User.create(name: 'amesel')
 User.create(name: 'yoshinao0330')
 User.create(name: 'frasel')
 

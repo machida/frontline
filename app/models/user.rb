@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
 
   has_many :joins
   has_many :parties
-  has_many :invited_parties, :through => :joins
+#  has_many :invited_parties, :through => :joins
+  has_many :tasks
 
   def self.create_with_omniauth(auth)
     create! do |user|

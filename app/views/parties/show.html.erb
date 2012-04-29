@@ -15,11 +15,41 @@
   <%= @party.end_at %>
 </p>
 
+<hr />
+
 <p>
   <b>Member:</b>
-  <ul>
   <% @party.users.each do |user| %>
-    <li><%= user.name %></li>
+    <%= div_for user do %>
+      <%= user.name %>
+      user tasks
+
+<div id="current">
+<h2>current</h2>
+</div>
+
+<% if user.id == current_user.id %>
+      <%= form_for [@party, user.tasks.build] do |f| -%>
+        <%= f.text_area :content, :rows => 3, :cols => 30 %>
+        <%= f.submit %>
+      <% end -%>
+<% end %>
+
+<div id="backlog">
+<h2>backlog</h2>
+<% user.tasks.backlog.each do |task| %>
+  <%= div_for task do %>
+    <%= task.content %>
+    <%= link_to "start", start_party_task_path(@party, task) %>
+  <% end %>
+<% end %>
+</div>
+
+<div id="done">
+<h2>done</h2>
+</div>
+
+    <% end %>
   <% end %>
   </ul>
 </p>
