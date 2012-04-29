@@ -2,7 +2,9 @@
 @import compass/utilities
 @import compass/css3
 
-body.parties_show    
+body.parties_index    
+  #main
+    min-height: 100%
   #body
     .parties
       padding: 16px  16px
@@ -28,6 +30,8 @@ body.parties_show
             li
               display: inline
               a
+                float: left
+                margin: 0 0 0 6px
                 color: #182640
                 font-weight: bold
                 display: block
@@ -58,7 +62,7 @@ body.parties_show
                 height: auto
                 +border-radius(20px)
 
-body.parties_index             
+body.parties_show
   #body
     .members
       table

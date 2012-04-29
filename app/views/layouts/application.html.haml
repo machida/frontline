@@ -8,9 +8,10 @@
   %body(class="#{controller_name} #{controller_name}_#{action_name}")
     #wrapper
       %nav#global
+        = render 'shared/global_nav'
       #main
         %header#header
+          = yield :header
         #body
-          = render 'shared/header'
           = yield
           = render 'shared/footer'

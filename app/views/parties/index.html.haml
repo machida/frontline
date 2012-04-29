@@ -1,19 +1,39 @@
-%h1 Listing parties
-%table
-  %tr
-    %th Name
-    %th Description
-    %th End at
-    %th
-    %th
-    %th
+- content_for :header do
+  .header
+    %h1= link_to 'パーティ一覧', root_path 
+
+.parties
   - @parties.each do |party|
-    %tr
-      %td= party.name
-      %td= party.description
-      %td= party.end_at
-      %td= link_to 'Show', party
-      %td= link_to 'Edit', edit_party_path(party)
-      %td= link_to 'Destroy', party, confirm: 'Are you sure?', method: :delete
-%br/
+    .party
+      %h2.name
+        =link_to party do
+          = party.name
+      .description
+        = party.description
+      .end_at
+        = party.end_at
+      .members
+        %ul
+          %li
+            %a{:href => ""}
+              %img.avatar.size128{:alt => "machida", :src => "https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg"}/
+          %li
+            %a{:href => ""}
+              %img.avatar.size128{:alt => "machida", :src => "https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg"}/
+          %li
+            %a{:href => ""}
+              %img.avatar.size128{:alt => "machida", :src => "https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg"}/
+          %li
+            %a{:href => ""}
+              %img.avatar.size128{:alt => "machida", :src => "https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg"}/
+          %li
+            %a{:href => ""}
+              %img.avatar.size128{:alt => "machida", :src => "https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg"}/
+      .actions
+        %ul
+          %li.show= link_to 'Show', party
+          %li.edit= link_to 'Edit', edit_party_path(party)
+          %li.delete= link_to 'Destroy', party, confirm: 'Are you sure?', method: :delete
+
+
 = link_to 'New Party', new_party_path
