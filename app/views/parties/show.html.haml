@@ -24,7 +24,7 @@
             %a{:href => ""}
               = image_tag user.image ? user.image : "dummy.png"
     .times
-      .now 10:00
+      .now
       .remain
         = @party.end_at.to_date.to_s(:db)
       .leave
@@ -79,25 +79,24 @@
                           %a{:href => ""}
                             %img.avatar.size128{:alt => "machida", :src => "https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg"}/
                         %p お仕事がんばってます。
-                  .footer
-                    .backlog
-                      .label
-                        %h2 Backlog
-                      .add
-                        - if user.id == current_user.id
-                          = form_for [@party, user.tasks.build] do |f|
-                            = f.text_area :content, :rows => 3, :cols => 30
-                            = f.submit
-                      %ul
-                        - user.tasks.backlog(@party.id).each do |task|
-                          = content_tag_for :li, task do
-                            %p= task.content
-                            %p= link_to "start", start_party_task_path(@party, task)
-                      
-                    .done
-                      .label
-                        %h2 Done
-                      %ul
-                        - user.tasks.done(@party.id).each do |task|
-                          = content_tag_for :li, task do
-                            %p= task.content
+                  .backlog
+                    .label
+                      %h2 Backlog
+                    - if user.id == current_user.id
+                      .add                      
+                        = form_for [@party, user.tasks.build] do |f|
+                          = f.text_area :content, :rows => 3, :cols => 30
+                          = f.submit
+                    %ul
+                      - user.tasks.backlog(@party.id).each do |task|
+                        = content_tag_for :li, task do
+                          %p= task.content
+                          %p= link_to "start", start_party_task_path(@party, task)
+                    
+                  .done
+                    .label
+                      %h2 Done
+                    %ul
+                      - user.tasks.done(@party.id).each do |task|
+                        = content_tag_for :li, task do
+                          %p= task.content

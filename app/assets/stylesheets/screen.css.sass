@@ -56,11 +56,27 @@ body
       .remain
         float: left
         background: #2a3031
-        line-height: 42px
-        margin: 5px 0 0 0
-        font-size: 32px
+        line-height: 36px
+        margin: 8px 10px 0 0
+        font-size: 26px
         padding: 0 20px
         +border-radius(4px)
+      .leave
+        a
+          float: left
+          line-height: 23px
+          margin: 20px 0 0 0
+          font-size: 13px
+          padding: 0 14px
+          +border-radius(4px)
+          text-decoration: none
+          color: #fff
+          font-weight: bold
+          background-color: rgb(1,120,159)
+          @include filter-gradient(#01789f, #006383, vertical)
+          $experimental-support-for-svg: true
+          @include background-image(linear-gradient(top,  rgba(1,120,159,1) 0%,rgba(0,99,131,1) 100%))                          
+          
     
 div#main
   margin: 0 0 0 50px

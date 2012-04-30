@@ -10,7 +10,7 @@ $ ->
     $("#main").css "width", $(".members table").width()
   else
     $("#main").css "width", $("#wrapper").width() - 50
-  $("#header .times").css "left", $("#wrapper").width() - 320
+  $("#header .times").css "left", $("#wrapper").width() - 420
   $(".member .header .state").click ->
     $(".member .header .selectstate").toggle()
   $(".doing").click ->
