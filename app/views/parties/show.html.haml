@@ -9,6 +9,10 @@
     setTimeout(timer, 1000);
   }
 - content_for :header do
+  - if notice
+    #notice
+      .content
+        = notice
   .header
     %h1= link_to @party.name, @party_path
     %nav.members
@@ -26,7 +30,6 @@
       .leave
         %a{:href => ""} 退席
 
-%p#notice= notice
 .members
   %table
     %tbody
@@ -62,8 +65,8 @@
                           %ul
                             %li= link_to "hold", hold_party_task_path(@party, task)
                             %li= link_to "finish", finish_party_task_path(@party, task)
-                            %li
-                              %a{:href => ""} HELP
+                          %p.help
+                            %a{:href => ""} HELP
                         
                   .activities
                     .add

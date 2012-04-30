@@ -17,3 +17,5 @@ $ ->
     $(".current .actions").toggle()
   $(".activities .label").click ->
     $(".activities ul").toggle()
+  $("#notice").css "left", $(window).width() / 2 - $("#notice").width() / 2
+  $("#notice").delay(2000).fadeOut "slow"
