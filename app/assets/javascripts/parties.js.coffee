@@ -2,6 +2,7 @@ $ ->
   $('#party_user_tokens').tokenInput '/users.json', 
     hintText: 'メンバーを選択してください' 
     theme: 'facebook'
+  $('.best_in_place').best_in_place()
   $("#global").css "height", $(window).height()
   $("#main").css "height", $(window).height()
   $("#wrapper").css "height", $(window).height()

@@ -16,12 +16,12 @@
     %br/
     = f.text_area :description
   .field
-    = f.label :user_tokens
+    = f.label :member_tokens
     %br/
-    = f.text_field :user_tokens, "data-pre" => @party.users.map(&:attributes).to_json
+    = f.text_field :member_tokens, "data-pre" => @party.members.map(&:attributes).to_json
   .field
     = f.label :end_at
     %br/
-    = f.datetime_select :end_at
+    = f.time_select :end_at, :minute_step => 15
   .actions
     = f.submit

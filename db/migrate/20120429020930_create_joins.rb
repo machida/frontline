@@ -3,7 +3,7 @@ class CreateJoins < ActiveRecord::Migration
     create_table :joins do |t|
       t.integer :user_id
       t.integer :party_id
-      t.string :state
+      t.string :state, :default => "chore"
 
       t.timestamps
     end

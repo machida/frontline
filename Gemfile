@@ -24,6 +24,8 @@ gem 'jquery-rails'
 
 gem 'omniauth-twitter'
 
+gem 'best_in_place'
+
 group :development do
   gem 'erb2haml'
 end

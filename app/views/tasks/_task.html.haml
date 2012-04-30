@@ -1,0 +1,14 @@
+= content_tag_for :li, task do
+  %p
+    = task.created_at.to_s(:time)
+    = task.content
+  - case task.state
+  - when "current"
+    .actions
+      %ul
+        %li= link_to "hold", hold_party_task_path(@party, task), :remote => true
+        %li= link_to "finish", finish_party_task_path(@party, task), :remote => true
+        %li
+          %a{:href => ""} HELP
+  - when "backlog"
+    %p= link_to "start", start_party_task_path(@party, task), :remote => true

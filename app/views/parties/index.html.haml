@@ -12,28 +12,18 @@
         = party.description
       .end_at
         = party.end_at.to_date.to_s(:db)
+        = party.end_at.to_s(:time)
       .members
         %ul
-          %li
-            %a{:href => ""}
-              %img.avatar.size128{:alt => "machida", :src => "https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg"}/
-          %li
-            %a{:href => ""}
-              %img.avatar.size128{:alt => "machida", :src => "https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg"}/
-          %li
-            %a{:href => ""}
-              %img.avatar.size128{:alt => "machida", :src => "https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg"}/
-          %li
-            %a{:href => ""}
-              %img.avatar.size128{:alt => "machida", :src => "https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg"}/
-          %li
-            %a{:href => ""}
-              %img.avatar.size128{:alt => "machida", :src => "https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg"}/
+          - party.members.each do |member|
+            %li
+              %a{:href => ""}
+                = image_tag member.image, :alt => member.name
       .actions
         %ul
           %li.show= link_to 'Show', party
-          %li.edit= link_to 'Edit', edit_party_path(party)
-          %li.delete= link_to 'Destroy', party, confirm: 'Are you sure?', method: :delete
-
+          - if user_signed_in? && current_user == party.user
+            %li.edit= link_to 'Edit', edit_party_path(party)
+            %li.delete= link_to 'Destroy', party, confirm: 'Are you sure?', method: :delete
 
 = link_to 'New Party', new_party_path
