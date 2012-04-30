@@ -1,0 +1,2 @@
+$('#<%= dom_id(@task) %>').fadeOut();
+$('.backlog ul').prepend("<%= j(render @task) %>");

@@ -1,5 +1,6 @@
 class JoinsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
+  respond_to :html, :json
 
   # def create
   #   @join = Join.new(params[:join])
@@ -17,16 +18,8 @@ class JoinsController < ApplicationController
 
   def update
     @join = Join.find(params[:id])
-
-    respond_to do |format|
-      if @join.update_attributes(params[:join])
-        format.html { redirect_to @join.party, notice: 'Join was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @join.errors, status: :unprocessable_entity }
-      end
-    end
+    @join.update_attributes(params[:join])
+    respond_with @join
   end
 
   # def destroy

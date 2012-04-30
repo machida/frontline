@@ -1,16 +1,17 @@
 class TasksController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
+  respond_to :html, :json, :js
 
   # # GET /tasks
   # # GET /tasks.json
-  # def index
-  #   @tasks = Task.all
-  # 
-  #   respond_to do |format|
-  #     format.html # index.html.erb
-  #     format.json { render json: @tasks }
-  #   end
-  # end
+  def index
+    @tasks = Task.all
+  
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @tasks }
+    end
+  end
   # 
   # # GET /tasks/1
   # # GET /tasks/1.json
@@ -44,16 +45,9 @@ class TasksController < ApplicationController
     @task.user_id = current_user.id
     @task.party_id = params[:party_id]
     @task.state = "backlog"
-
-    respond_to do |format|
-      if @task.save
-        format.html { redirect_to @task.party, notice: 'Task was successfully created.' }
-        format.json { render json: @task, status: :created, location: @task }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
-      end
-    end
+    @task.save
+    @party = @task.party
+    respond_with @task
   end
 
   # # PUT /tasks/1
@@ -89,24 +83,24 @@ class TasksController < ApplicationController
     unless current_user.tasks.current(params[:party_id]).exists?
       @task.state = "current"
       @task.save
-      redirect_to @task.party, notice: 'Task was successfully started.'
-    else
-      redirect_to @task.party, notice: 'Task was already current.'
     end
+    @party = @task.party
+    respond_with @task
   end
 
   def hold
     @task = current_user.tasks.find(params[:id])
     @task.state = "backlog"
     @task.save
-    redirect_to @task.party, notice: 'Task was successfully holded.'
+    @party = @task.party
+    respond_with @task
   end
 
   def finish
     @task = current_user.tasks.find(params[:id])
     @task.state = "done"
     @task.save
-    redirect_to @task.party, notice: 'Task was successfully finished.'
+    @party = @task.party
+    respond_with @task
   end
-
 end

@@ -1,0 +1,6 @@
+<% if @task.state == "backlog" %>
+alert("You have a current task!");
+<% else %>
+$('#<%= dom_id(@task) %>').fadeOut();
+$('.current .doing ul').prepend("<%= j(render @task) %>");
+<% end %>

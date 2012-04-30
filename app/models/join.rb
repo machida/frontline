@@ -7,5 +7,15 @@ class Join < ActiveRecord::Base
   validates :party_id, :user_id, :presence => true
   validates :party_id, :uniqueness => {:scope => :user_id}
 
-  STATE = %w(chore busy break)
+  after_create :set_default_params
+
+  STATE = [
+    ["chore", "雑用"],
+    ["busy", "集中"],
+    ["break", "休憩中"]
+  ]
+
+  def set_default_params
+    self.state = "chore"
+  end
 end
