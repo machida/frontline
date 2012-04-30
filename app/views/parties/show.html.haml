@@ -1,16 +1,24 @@
+:javascript
+  setTimeout(timer, 1000);
+  function timer() {
+    var t = new Date();
+    var h = t.getHours() + ":" + t.getMinutes() + ":" + t.getSeconds();
+    console.log(h);
+    $(".now").html(h)
+    $(".remain").html("20:00")
+    setTimeout(timer, 1000);
+  }
 - content_for :header do
   .header
     %h1= link_to @party.name, @party_path
-    
     %nav.members
       %ul
-        %li
-          %a{:href => ""} all
-        
+        %li.all
+          =link_to "all", @party_path
         - @party.users.each do |user|
           = content_tag_for :li, user do
             %a{:href => ""}
-              = image_tag user.image
+              = image_tag user.image ? user.image : "dummy.png"
     .times
       .now 10:00
       .remain
@@ -29,18 +37,23 @@
               .header
                 %h1.icon
                   %a{:href => ""}
-                    %img.avatar.size128{:alt => "machida", :src => "https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg"}/
+                    = image_tag user.image ? user.image : "dummy.png"
                 .information
                   %ul
                     %li.name
-                      %a{:href => ""} machida
+                      %a{:href => ""}
+                        = user.name
                     %li.state
+                      作業中
+                    %li.selectstate
                       - join = user.joins.find_by_party_id(@party.id)
                       = form_for join do |f|
                         = f.select :state, Join::STATE
                         = f.submit
               .body
                 .current
+                  .label
+                    %h2 Current
                   .doing
                     - user.tasks.current(@party.id).each do |task|
                       = div_for task do
@@ -53,8 +66,6 @@
                               %a{:href => ""} HELP
                         
                   .activities
-                    .label
-                      %h2 Activities
                     .add
                       %form{:name => "form1"}
                         %textarea#content.mceEditor{:cols => "15", :name => "content", :rows => "3", :tabindex => "2"}
@@ -64,26 +75,26 @@
                         .icon
                           %a{:href => ""}
                             %img.avatar.size128{:alt => "machida", :src => "https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg"}/
-                        %p 『不思議の国のアリス』（ふしぎのくにのアリス）は、イギリスの数学者にして作家チャールズ・ラトウィッジ・ドジソンが、ルイス・キャロルの筆名で1865年に出版した児童文学である。主人公の少女アリスが、白うさぎ
-                .footer
-                  .backlog
-                    .label
-                      %h2 Backlog
-                    .add
-                      - if user.id == current_user.id
-                        = form_for [@party, user.tasks.build] do |f|
-                          = f.text_area :content, :rows => 3, :cols => 30
-                          = f.submit
-                    %ul
-                      - user.tasks.backlog(@party.id).each do |task|
-                        = content_tag_for :li, task do
-                          %p= task.content
-                          %p= link_to "start", start_party_task_path(@party, task)
-                    
-                  .done
-                    .label
-                      %h2 done
-                    %ul
-                      - user.tasks.done(@party.id).each do |task|
-                        = content_tag_for :li, task do
-                          %p= task.content
+                        %p お仕事がんばってます。
+                  .footer
+                    .backlog
+                      .label
+                        %h2 Backlog
+                      .add
+                        - if user.id == current_user.id
+                          = form_for [@party, user.tasks.build] do |f|
+                            = f.text_area :content, :rows => 3, :cols => 30
+                            = f.submit
+                      %ul
+                        - user.tasks.backlog(@party.id).each do |task|
+                          = content_tag_for :li, task do
+                            %p= task.content
+                            %p= link_to "start", start_party_task_path(@party, task)
+                      
+                    .done
+                      .label
+                        %h2 Done
+                      %ul
+                        - user.tasks.done(@party.id).each do |task|
+                          = content_tag_for :li, task do
+                            %p= task.content

@@ -71,7 +71,6 @@ body.parties_show
             vertical-align: top
       .member
         height: 100%
-        overflow: auto
         float: left
         width: 290px
         border-right: #272d2e solid 3px
@@ -80,6 +79,7 @@ body.parties_show
         .header
           background: rgba(0, 0, 0, .2)
           padding: 6px 10px
+          position: relative
           +clearfix
           &.hover
             +box-shadow(rgba(0, 0, 0, .3) 0 2px 5px)
@@ -105,6 +105,11 @@ body.parties_show
                 line-height: 24px
                 font-size: 13px
                 +border-radius(6px)
+              li.selectstate
+                display: none
+                position: absolute
+                right: 0
+                top: 0
           .icon
             float: left
             padding: 0 10px 0 0
@@ -120,95 +125,93 @@ body.parties_show
                 width: 50px
                 height: auto
                 +border-radius(25px)
-        .body
-          clear: both
-          overflow-y: auto
-          overflow-x: hidden
-          .current
+      .body
+        clear: both
+        overflow-y: auto 
+        height: 100%
+        .current
+          +clearfix
+          .label
+            padding: 0 10px
+            border-bottom: #00516b solid 1px
+            background-color: rgb(1,120,159)
+            @include filter-gradient(#01789f, #006383, vertical)
+            $experimental-support-for-svg: true
+            @include background-image(linear-gradient(top,  rgba(1,120,159,1) 0%,rgba(0,99,131,1) 100%))                          
+            h2
+              line-height: 26px
+              font-size: 14px
+              font-weight: bold
+              color: #fff
+          
+          .doing
+            clear: both
+            padding: 10px
+            background: rgba(0, 0, 0, .6)
             +clearfix
-            .doing
-              clear: both
-              padding: 10px
-              background: rgba(0, 0, 0, .6)
+            p
+              font-size: 12px
+              line-height: 1.6
+              color: #fff
+            .actions
+              padding: 8px 0 0 0
+              display: block
+              display: none
+              cursor: pointer
               +clearfix
-              p
-                font-size: 12px
-                line-height: 1.6
-                color: #fff
-              .actions
-                padding: 8px 0 0 0
-                display: block
-                display: none
-                cursor: pointer
-                +clearfix
-                ul
-                  float: right
-                  display: block
-                  +border-radius(4px)
-                  overflow: hidden
-                  li
-                    display: inline
-                    a
-                      display: block
-                      float: left
-                      font-size: 13px
-                      line-height: 28px
-                      background: #fff
-                      padding: 0 10px
-                      text-decoration: none
-            
-            .activities
-              clear: both
-              +clearfix
-              margin: 0 0 18px 0
-              .label
-                padding: 0 10px
-                border-bottom: #00516b solid 1px
-                background-color: rgb(1,120,159)
-                @include filter-gradient(#01789f, #006383, vertical)
-                $experimental-support-for-svg: true
-                @include background-image(linear-gradient(top,  rgba(1,120,159,1) 0%,rgba(0,99,131,1) 100%))                          
-                h2
-                  line-height: 26px
-                  font-size: 14px
-                  font-weight: bold
-                  color: #fff
-              .add
-                padding: 10px 0
               ul
+                float: right
+                display: block
+                +border-radius(4px)
+                overflow: hidden
                 li
-                  +clearfix
-                  border-bottom: dotted #666 1px
-                  display: block
-                  padding: 14px 0
-                  &:first-child
-                    padding: 0 0 14px 0
-                  &:last-child
-                    border: none
-                  .icon
+                  display: inline
+                  a
+                    display: block
                     float: left
-                    padding: 0 8px 0 0
-                    a
+                    font-size: 13px
+                    line-height: 28px
+                    background: #fff
+                    padding: 0 10px
+                    text-decoration: none
+              
+          .activities
+            clear: both
+            +clearfix
+            .add
+              padding: 10px 10px 0 10px
+            ul
+              li
+                +clearfix
+                border-bottom: dotted #666 1px
+                display: block
+                padding: 14px 10px
+                &:first-child
+                  padding: 14px 10px
+                &:last-child
+                  border: none
+                .icon
+                  float: left
+                  padding: 0 8px 0 0
+                  a
+                    width: 36px
+                    height: 36px
+                    padding: 3px
+                    background: rgba(0, 0, 0, .2)
+                    +border-radius(21px)
+                    display: block
+                    +box-shadow(#495051 0 1px 0)
+                    img
                       width: 36px
-                      height: 36px
-                      padding: 3px
-                      background: rgba(0, 0, 0, .2)
-                      +border-radius(21px)
-                      display: block
-                      +box-shadow(#495051 0 1px 0)
-                      img
-                        width: 36px
-                        height: auto
-                        +border-radius(18px)
-                  p
-                    font-size: 11px
-                    line-height: 1.6
-            
-        .footer
+                      height: auto
+                      +border-radius(18px)
+                p
+                  font-size: 11px
+                  line-height: 1.6
+              
           .backlog
             clear: both
             +clearfix
-            margin: 0 0 18px 0
             .label
               padding: 0 10px
               border-bottom: #00516b solid 1px
@@ -222,15 +225,15 @@ body.parties_show
                 font-weight: bold
                 color: #fff
             .add
-              padding: 10px 0
+              padding: 10px 10px 0 10px
             ul
               li
                 +clearfix
                 border-bottom: dotted #666 1px
                 display: block
-                padding: 14px 0
+                padding: 14px 10px
                 &:first-child
-                  padding: 0 0 14px 0
+                  padding: 14px 10px
                 &:last-child
                   border: none
                 .icon
@@ -254,7 +257,6 @@ body.parties_show
           .done
             clear: both
             +clearfix
-            margin: 0 0 18px 0
             .label
               padding: 0 10px
               border-bottom: #00516b solid 1px
@@ -274,9 +276,9 @@ body.parties_show
                 +clearfix
                 border-bottom: dotted #666 1px
                 display: block
-                padding: 14px 0
+                padding: 14px 10px
                 &:first-child
-                  padding: 0 0 14px 0
+                  padding: 14px 10px
                 &:last-child
                   border: none
                 .icon
@@ -297,4 +299,3 @@ body.parties_show
                 p
                   font-size: 11px
                   line-height: 1.6
-  

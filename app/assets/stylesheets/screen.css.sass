@@ -9,9 +9,9 @@ body
 #wrapper
   overflow-y: hidden
   min-width: 1000px
-header
+#header
+  +clearfix
   border-bottom: #495051 solid 1px
-  min-width: 100%
   .header
     border-bottom: #272d2e 4px solid
     position: relative
@@ -64,10 +64,15 @@ header
     
 div#main
   margin: 0 0 0 50px
+  position: absolute
   +clearfix
 nav#global
-  margin-bottom: -9999px
-  padding-bottom: 9999px
   background: #000
-  float: left
+  position: absolute
+  left: 0
+  top: 0
   width: 50px
+#notice
+  position: absolute
+  padding: 20px
+  background: rgba(0, 0, 0, .3)
