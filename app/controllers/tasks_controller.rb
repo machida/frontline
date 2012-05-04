@@ -82,6 +82,7 @@ class TasksController < ApplicationController
     @task = current_user.tasks.find(params[:id])
     unless current_user.tasks.current(params[:party_id]).exists?
       @task.state = "current"
+      @task.started_at = Time.now
       @task.save
     end
     @party = @task.party
@@ -99,6 +100,7 @@ class TasksController < ApplicationController
   def finish
     @task = current_user.tasks.find(params[:id])
     @task.state = "done"
+    @task.finished_at = Time.now
     @task.save
     @party = @task.party
     respond_with @task

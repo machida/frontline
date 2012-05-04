@@ -39,7 +39,7 @@
       %tr
         - @party.members.each do |member|
           = content_tag_for :td, member do
-            .member
+            .member{:class => member.joins.find_by_party_id(@party.id).state}
               .header
                 %h1.icon
                   %a{:href => ""}

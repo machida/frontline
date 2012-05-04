@@ -35,10 +35,10 @@ ActiveRecord::Schema.define(:version => 20120429045006) do
     t.integer  "party_id"
     t.text     "content"
     t.string   "state"
-    t.time     "start_time"
-    t.time     "end_time"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "started_at"
+    t.datetime "finished_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|

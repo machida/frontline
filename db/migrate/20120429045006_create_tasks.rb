@@ -5,8 +5,8 @@ class CreateTasks < ActiveRecord::Migration
       t.integer :party_id
       t.text :content
       t.string :state
-      t.time :start_time
-      t.time :end_time
+      t.datetime :started_at
+      t.datetime :finished_at
 
       t.timestamps
     end
