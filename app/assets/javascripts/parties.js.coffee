@@ -1,5 +1,5 @@
 $ ->
-  $('#party_user_tokens').tokenInput '/users.json', 
+  $('#party_member_tokens').tokenInput '/users.json', 
     hintText: 'メンバーを選択してください' 
     theme: 'facebook'
   $('.best_in_place').best_in_place()
