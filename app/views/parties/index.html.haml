@@ -26,4 +26,6 @@
             %li.edit= link_to 'Edit', edit_party_path(party)
             %li.delete= link_to 'Destroy', party, confirm: 'Are you sure?', method: :delete
 
-= link_to 'New Party', new_party_path
+%nav.parties
+  %ul
+    %li.new= link_to 'New Party', new_party_path

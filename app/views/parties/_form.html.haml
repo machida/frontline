@@ -7,21 +7,17 @@
       %ul
         - @party.errors.full_messages.each do |msg|
           %li= msg
-  .field
+  .field.name
     = f.label :name
-    %br/
     = f.text_field :name
-  .field
+  .field.description
     = f.label :description
-    %br/
     = f.text_area :description
-  .field
+  .field.members
     = f.label :member_tokens
-    %br/
     = f.text_field :member_tokens, "data-pre" => @party.members.map(&:attributes).to_json
-  .field
+  .field.end_at
     = f.label :end_at
-    %br/
     = f.time_select :end_at, :minute_step => 15
   .actions
     = f.submit

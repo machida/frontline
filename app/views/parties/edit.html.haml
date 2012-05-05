@@ -1,5 +1,8 @@
-%h1 Editing party
+- content_for :header do
+  .header
+    %h1 Editing party
 = render 'form'
-= link_to 'Show', @party
-|
-\#{link_to 'Back', parties_path}
+%nav.parties
+  %ul
+    %li= link_to 'Show', @party
+    %li= link_to 'Back', parties_path
