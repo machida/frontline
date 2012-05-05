@@ -105,11 +105,9 @@ body.parties_show
                 line-height: 24px
                 font-size: 13px
                 +border-radius(6px)
-              li.selectstate
-                display: none
-                position: absolute
-                right: 0
-                top: 0
+                span
+                  form
+                    font-size: 16px
           .icon
             float: left
             padding: 0 10px 0 0
@@ -159,6 +157,20 @@ body.parties_show
               display: none
               cursor: pointer
               +clearfix
+              p.help
+                a
+                  float: left
+                  text-decoration: none
+                  display: block
+                  line-height: 28px
+                  padding: 0 10px
+                  color: #fff
+                  +border-radius(4px)
+                  font-weight: bold
+                  background-color: rgb(103,221,238)
+                  @include filter-gradient(#67ddee, #13adc3, vertical)
+                  $experimental-support-for-svg: true
+                  @include background-image(linear-gradient(top,  rgba(103,221,238,1) 0%,rgba(19,173,195,1) 100%))
               ul
                 float: right
                 display: block
@@ -171,9 +183,14 @@ body.parties_show
                     float: left
                     font-size: 13px
                     line-height: 28px
-                    background: #fff
                     padding: 0 10px
+                    color: #fff
+                    font-weight: bold
                     text-decoration: none
+                    background-color: rgb(103,221,238)
+                    @include filter-gradient(#67ddee, #13adc3, vertical)
+                    $experimental-support-for-svg: true
+                    @include background-image(linear-gradient(top,  rgba(103,221,238,1) 0%,rgba(19,173,195,1) 100%))
               
           .activities
             clear: both
@@ -281,21 +298,18 @@ body.parties_show
                   padding: 14px 10px
                 &:last-child
                   border: none
-                .icon
+                .time
                   float: left
-                  padding: 0 8px 0 0
-                  a
-                    width: 36px
-                    height: 36px
-                    padding: 3px
-                    background: rgba(0, 0, 0, .2)
-                    +border-radius(21px)
-                    display: block
-                    +box-shadow(#495051 0 1px 0)
-                    img
-                      width: 36px
-                      height: auto
-                      +border-radius(18px)
+                  white-space: nowrap
+                  height: 50px
+                  width: 50px
+                  text-align: center
+                  line-height: 50px
+                  background: rgba(0, 0, 0, .2)
+                  display: block
+                  margin: 0 8px 4px 0
+                  +box-shadow(#495051 0 1px 0)
+                  +border-radius(25px)
                 p
                   font-size: 11px
                   line-height: 1.6

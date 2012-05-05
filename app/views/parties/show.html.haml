@@ -75,8 +75,8 @@
                   .backlog
                     .label
                       %h2 Backlog
-                    .add
-                      - if user_signed_in? && current_user == member
+                    - if user_signed_in? && current_user == member
+                      .add
                         %a{:href => ""} new task
                         = form_for [@party, member.tasks.build], :remote => true do |f|
                           = f.text_area :content, :rows => 3, :cols => 30

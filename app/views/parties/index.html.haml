@@ -18,7 +18,7 @@
           - party.members.each do |member|
             %li
               %a{:href => ""}
-                = image_tag member.image, :alt => member.name
+                = image_tag member.image ? member.image : "dummy.png"
       .actions
         %ul
           %li.show= link_to 'Show', party
