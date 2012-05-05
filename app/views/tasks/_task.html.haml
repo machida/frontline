@@ -1,6 +1,13 @@
 = content_tag_for :li, task do
-  %p.time= task.created_at.to_s(:time)
-  %p= task.content
+  %p
+    = task.content
+    - if task.state == "done"
+      %p
+        working time
+        = distance_of_time_in_words(task.started_at, task.finished_at)
+      %p
+        finish time
+        = task.finished_at.to_s(:time)
   - case task.state
   - when "current"
     .actions

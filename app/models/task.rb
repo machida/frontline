@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-  attr_accessible :content, :end_time, :start_time, :state, :user_id
+  attr_accessible :content, :finished_at, :started_at, :state, :user_id
   belongs_to :user
   belongs_to :party
 

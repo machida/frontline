@@ -19,6 +19,7 @@ class PartiesController < ApplicationController
 
   def new
     @party = Party.new
+    @party.member_tokens=[current_user.id]
     respond_with @party
   end
 
