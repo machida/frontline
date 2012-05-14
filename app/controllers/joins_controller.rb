@@ -19,7 +19,7 @@ class JoinsController < ApplicationController
   def update
     @join = Join.find(params[:id])
     @join.update_attributes(params[:join])
-    respond_with @join
+    render :json => @join
   end
 
   # def destroy

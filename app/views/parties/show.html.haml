@@ -1,16 +1,3 @@
-:javascript
-  setTimeout(timer, 1000);
-  function timer() {
-    var t = new Date();
-    var h = (t.getHours() >= 10) ? t.getHours() : "0" + t.getHours();
-    var m = (t.getMinutes() >= 10) ? t.getMinutes() : "0" + t.getMinutes();
-    var s = (t.getSeconds() >= 10) ? t.getSeconds() : "0" + t.getSeconds();
-    var now = h + ":" + m + ":" + s;
-    $(".now").html(now)
-    $(".remain").html("20:00")
-    setTimeout(timer, 1000);
-  }
-
 - content_for :header do
   - if notice
     #notice
@@ -29,7 +16,10 @@
     .times
       .now
       .remain
-        = @party.end_at.to_date.to_s(:db)
+      .end{"data-hour" => @join.end_hour, "data-min" => @join.end_min}
+        = best_in_place @join, :end_hour, type: :select, collection: (0..23).map{|i| [i, i < 10 ? "0#{i}" : i.to_s]}, nil: "00"
+        &#58;
+        = best_in_place @join, :end_min, type: :select, collection: [0, 15, 30, 45].map{|i| [i, i < 10 ? "0#{i}" : i.to_s]}, nil: "00"
       .leave
         %a{:href => ""} 退席
 
@@ -50,8 +40,11 @@
                       %a{:href => ""}
                         = member.name
                     %li.state
-                      - join = member.joins.find_by_party_id(@party.id)
-                      = best_in_place join, :state, type: :select, collection: Join::STATE
+                      - if user_signed_in? && current_user == member
+                        = best_in_place @join, :state, type: :select, collection: Join::STATE
+                      - else
+                        = member.joins.find_by_party_id(@party.id).state_text
+
               .body
                 .current
                   .label

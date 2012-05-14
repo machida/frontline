@@ -11,14 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120429045006) do
+ActiveRecord::Schema.define(:version => 20120512083000) do
 
   create_table "joins", :force => true do |t|
     t.integer  "user_id"
     t.integer  "party_id"
-    t.string   "state",      :default => "chore"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.string   "state",       :default => "chore"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.datetime "started_at"
+    t.datetime "finished_at"
+    t.integer  "end_hour",    :default => 0
+    t.integer  "end_min",     :default => 0
   end
 
   create_table "parties", :force => true do |t|

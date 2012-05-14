@@ -1,2 +1,2 @@
 $('#task_content').val("")
-$('.backlog ul').prepend("<%= j(render @task) %>").fadeIn()
+$('#<%= dom_id(current_user) %> .backlog ul').prepend("<%= j(render @task) %>").fadeIn()

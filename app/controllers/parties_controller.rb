@@ -14,12 +14,14 @@ class PartiesController < ApplicationController
 
   def show
     @party = Party.find(params[:id])
+    @join = current_user.joins.find_by_party_id(@party.id)
     respond_with @party
   end
 
   def new
+    logger.info(current_user.id)
     @party = Party.new
-    @party.member_tokens=[current_user.id]
+    @party.member_tokens="#{current_user.id},"
     respond_with @party
   end
 
