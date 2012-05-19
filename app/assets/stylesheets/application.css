@@ -10,5 +10,5 @@
  *
  *= require token-input-facebook.css
  *= require_self
- *= require_tree .
+ *= require_directory .
 */

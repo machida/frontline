@@ -5,12 +5,10 @@
       = "HELP ME!!!" if task.help
     - if task.state == "done"
       .times
-        %ul
-          %li.working
-            working
+        %p
+          %span.working
             = distance_of_time_in_words(task.started_at, task.finished_at)
-          %li.finish
-            finish
+          %span.finish
             = task.finished_at.to_s(:time)
   - case task.state
   - when "current"
@@ -23,8 +21,10 @@
           = link_to help_message(task), help_party_task_path(@party, task), :remote => true
   - when "backlog"
     - if user_signed_in? && current_user == task.user
-      %p.start= link_to "start", start_party_task_path(@party, task), :remote => true
-      %p= link_to "delete", party_task_path(@party, task), :method => :delete, :remote => true
+      .actions
+        %ul
+          %li.start= link_to "start", start_party_task_path(@party, task), :remote => true
+        %p.delete= link_to "delete", party_task_path(@party, task), :method => :delete, :remote => true
   - when "done"
     - if user_signed_in? && current_user == task.user
-      %p= link_to "redo", redo_party_task_path(@party, task), :remote => true
+      %p.redo= link_to "redo", redo_party_task_path(@party, task), :remote => true
