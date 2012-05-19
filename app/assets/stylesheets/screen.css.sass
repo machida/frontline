@@ -83,18 +83,20 @@ div#main
   position: absolute
   +clearfix
 nav#global
-  background: #000
+  background: #222
   position: absolute
   left: 0
   top: 0
   width: 40px
-  padding: 0 5px
+  padding: 10px 5px
+  +box-shadow(#000 0 0 4px inset)
   a
     display: block
     width: 40px
     height: 40px
-    background: #fff
+    background: rgba(200, 200, 200, .1)
     +border-radius(20px)
+    margin: 0 0 10px 0
 #notice
   position: absolute
   top: 30px
