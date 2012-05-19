@@ -70,7 +70,6 @@ class TasksController < ApplicationController
   # # DELETE /tasks/1.json
   def destroy
     @task = current_user.tasks.find(params[:id])
-    @party = @task.party
     @task.destroy
     respond_with @task
   end

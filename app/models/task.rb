@@ -2,6 +2,7 @@ class Task < ActiveRecord::Base
   attr_accessible :content, :finished_at, :started_at, :state, :user_id
   belongs_to :user
   belongs_to :party
+  has_many :activities
 
   validates :content, :user_id, :presence => true
 

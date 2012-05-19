@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 #  has_many :invited_parties, :through => :joins
   has_many :invited_parties, :through => :joins, :source => :party
   has_many :tasks
+  has_many :activities
 
   validates :name, :presence => true
   validates :uid, :uniqueness => {:scope => :provider}
@@ -18,5 +19,4 @@ class User < ActiveRecord::Base
       user.image = auth["info"]["image"]
     end
   end
-
 end

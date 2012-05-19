@@ -1,0 +1,2 @@
+$('#<%= dom_id(@activity.task) %> textarea').val("")
+$('#<%= dom_id(@activity.task) %> .activities ul').prepend("<%= j(render @activity) %>").fadeIn()

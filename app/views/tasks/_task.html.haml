@@ -28,3 +28,13 @@
   - when "done"
     - if user_signed_in? && current_user == task.user
       %p.redo= link_to "redo", redo_party_task_path(@party, task), :remote => true
+
+  - if user_signed_in?
+    .add
+      = form_tag "/activities", :remote => true do
+        = hidden_field_tag :task_id, task.id
+        = text_area_tag :content, nil, :rows => 3, :cols => 15
+        = submit_tag "new activity"
+  .activities
+    %ul
+      = render task.activities

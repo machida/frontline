@@ -50,42 +50,26 @@
                   .label
                     %h2 Current
                   .doing
-                    %ul
+                    %ul.tasks
                       - task = member.tasks.current(@party.id).first
                       - if task
                         = render task
                       - else
                         %li.empty
                           未選択
-                  /
-                    .activities
-                      .add
-                        %form{:name => "form1"}
-                          %textarea#content.mceEditor{:cols => "15", :name => "content", :rows => "3", :tabindex => "2"}
-                          %input#publish{:name => "publish", :type => "submit", :value => "POST"}
-                      %ul
-                        %li
-                          .icon
-                            %a{:href => ""}
-                              %img.avatar.size128{:alt => "machida", :src => "https://si0.twimg.com/profile_images/525575524/14424182_2338889845_reasonably_small.jpg"}/
-                          %p お仕事がんばってます。
                 .backlog
                   .label
                     %h2 Backlog
                   - if user_signed_in? && current_user == member
-                    .add.close
-                      %a{:href => ""} close
+                    .add
                       = form_for [@party, member.tasks.build], :remote => true do |f|
                         = f.text_area :content, :rows => 3, :cols => 30
                         = f.submit
-                    .add
-                      %a{:href => ""} new task
-                  %ul
+                  %ul.tasks
                     = render member.tasks.backlog(@party.id)
                   
                 .done
                   .label
                     %h2 Done
-
-                  %ul
+                  %ul.tasks
                     = render member.tasks.done(@party.id)
