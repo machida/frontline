@@ -1,22 +1,24 @@
-= content_tag_for :li, task do
+= content_tag_for :li, task, :class => "task" do
   %p
     = task.content
     - if task.state == "done"
-      %p
-        working time
-        = distance_of_time_in_words(task.started_at, task.finished_at)
-      %p
-        finish time
-        = task.finished_at.to_s(:time)
+      .times
+        %ul
+          %li.working
+            working time
+            = distance_of_time_in_words(task.started_at, task.finished_at)
+          %li.finish
+            finish time
+            = task.finished_at.to_s(:time)
   - case task.state
   - when "current"
     - if user_signed_in? && current_user == task.user
       .actions
         %ul
-          %li= link_to "hold", hold_party_task_path(@party, task), :remote => true
-          %li= link_to "finish", finish_party_task_path(@party, task), :remote => true
+          %li.hold= link_to "hold", hold_party_task_path(@party, task), :remote => true
+          %li.finish= link_to "finish", finish_party_task_path(@party, task), :remote => true
         %p.help
           %a{:href => ""} HELP
   - when "backlog"
     - if user_signed_in? && current_user == task.user
-      %p= link_to "start", start_party_task_path(@party, task), :remote => true
+      %p.start= link_to "start", start_party_task_path(@party, task), :remote => true

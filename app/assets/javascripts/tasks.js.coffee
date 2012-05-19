@@ -4,5 +4,5 @@
 
 $ ->
   $('.add a').click ->
-    $('#new_task').toggle()
+    $('.add').toggleClass("close")
     false

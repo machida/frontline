@@ -52,7 +52,11 @@
                   .doing
                     %ul
                       - task = member.tasks.current(@party.id).first
-                      = render task if task
+                      - if task
+                        = render task
+                      - else
+                        %li.empty
+                          未選択
                   /
                     .activities
                       .add
@@ -69,11 +73,13 @@
                     .label
                       %h2 Backlog
                     - if user_signed_in? && current_user == member
-                      .add
-                        %a{:href => ""} new task
+                      .add.close
+                        %a{:href => ""} close
                         = form_for [@party, member.tasks.build], :remote => true do |f|
                           = f.text_area :content, :rows => 3, :cols => 30
                           = f.submit
+                      .add
+                        %a{:href => ""} new task
                     %ul
                       = render member.tasks.backlog(@party.id)
                     
