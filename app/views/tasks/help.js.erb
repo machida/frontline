@@ -1,0 +1,6 @@
+<% if @task.help %>
+$('#<%= dom_id(@task) %> .helpme').html("HELP ME!!!")
+<% else %>
+$('#<%= dom_id(@task) %> .helpme').empty()
+<% end %>
+$('#<%= dom_id(@task) %> .help a').html("<%= help_message(@task) %>")

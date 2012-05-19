@@ -68,15 +68,12 @@ class TasksController < ApplicationController
   # 
   # # DELETE /tasks/1
   # # DELETE /tasks/1.json
-  # def destroy
-  #   @task = Task.find(params[:id])
-  #   @task.destroy
-  # 
-  #   respond_to do |format|
-  #     format.html { redirect_to tasks_url }
-  #     format.json { head :no_content }
-  #   end
-  # end
+  def destroy
+    @task = current_user.tasks.find(params[:id])
+    @party = @task.party
+    @task.destroy
+    respond_with @task
+  end
 
   def start
     @task = current_user.tasks.find(params[:id])
@@ -101,6 +98,22 @@ class TasksController < ApplicationController
     @task = current_user.tasks.find(params[:id])
     @task.state = "done"
     @task.finished_at = Time.now
+    @task.save
+    @party = @task.party
+    respond_with @task
+  end
+
+  def help
+    @task = current_user.tasks.find(params[:id])
+    @party = @task.party
+    @task.toggle!(:help)
+    respond_with @task
+  end
+
+  def redo
+    @task = current_user.tasks.find(params[:id])
+    @task.state = "backlog"
+    @task.finished_at = nil
     @task.save
     @party = @task.party
     respond_with @task
