@@ -6,10 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(name: 'yoshida naoki')
+User.create(name: 'yoshida')
+User.create(name: 'machida')
 User.create(name: 'yoshinao0330')
-User.create(name: 'frasel')
 
-Party.create(name: 'p4d hackason #1', end_at: Time.now.to_date.tomorrow)
-Party.create(name: 'p4d hackason #2', end_at: Time.now.to_date.tomorrow)
-Party.create(name: 'p4d hackason #3', end_at: Time.now.to_date.tomorrow)
+Party.create(name: 'p4d hackason #1')
+Party.create(name: 'p4d hackason #2')
+Party.create(name: 'p4d hackason #3')

@@ -1,6 +1,8 @@
 = content_tag_for :li, task do
   %p
-    = task.content
+    = nl2br task.content
+    .helpme
+      = "HELP ME!!!" if task.help
     - if task.state == "done"
       %p
         working time
@@ -16,7 +18,11 @@
           %li= link_to "hold", hold_party_task_path(@party, task), :remote => true
           %li= link_to "finish", finish_party_task_path(@party, task), :remote => true
         %p.help
-          %a{:href => ""} HELP
+          = link_to help_message(task), help_party_task_path(@party, task), :remote => true
   - when "backlog"
     - if user_signed_in? && current_user == task.user
       %p= link_to "start", start_party_task_path(@party, task), :remote => true
+      %p= link_to "delete", party_task_path(@party, task), :method => :delete, :remote => true
+  - when "done"
+    - if user_signed_in? && current_user == task.user
+      %p= link_to "redo", redo_party_task_path(@party, task), :remote => true

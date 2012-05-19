@@ -1,6 +1,6 @@
 # encoding: utf-8
 class Join < ActiveRecord::Base
-  attr_accessible :party_id, :user_id, :state, :end_hour, :end_min
+  attr_accessible :party_id, :user_id, :state, :end_hour, :end_min, :help
   belongs_to :party
   belongs_to :user
 

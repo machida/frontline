@@ -4,9 +4,11 @@ Frontline::Application.routes.draw do
 
   resources :parties do
     resources :tasks do
-      get "start", :on => :member
-      get "hold", :on => :member
+      get "start",  :on => :member
+      get "hold",   :on => :member
       get "finish", :on => :member
+      get "help",   :on => :member
+      get "redo",   :on => :member
     end
   end
 

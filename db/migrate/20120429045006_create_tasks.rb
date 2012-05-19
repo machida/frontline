@@ -5,6 +5,7 @@ class CreateTasks < ActiveRecord::Migration
       t.integer :party_id
       t.text :content
       t.string :state
+      t.boolean :help, dafault: false
       t.datetime :started_at
       t.datetime :finished_at
 
