@@ -1,0 +1,457 @@
+body.parties_index    
+  #main
+    min-height: 100%
+  #body
+    nav.parties
+      padding: 10px 16px
+      ul
+        li
+          display: inline
+          a
+            float: left
+            line-height: 23px
+            margin: 0 10px 0 0
+            font-size: 13px
+            padding: 0 14px
+            +border-radius(4px)
+            text-decoration: none
+            color: #fff
+            font-weight: bold
+            background-color: rgb(1,120,159)
+            @include filter-gradient(#01789f, #006383, vertical)
+            $experimental-support-for-svg: true
+            @include background-image(linear-gradient(top,  rgba(1,120,159,1) 0%,rgba(0,99,131,1) 100%))
+    div.parties
+      padding: 16px  16px
+      +clearfix
+      div.party
+        width: 700px
+        padding: 8px 10px
+        background: rgba(0, 0, 0, .2)
+        float: left
+        position: relative
+        margin: 0 0 10px 0
+        h2
+          margin: 0 0 8px 0
+          a
+            color: #cad5d7
+            text-decoration: none
+            font-size: 18px
+        .actions
+          position: absolute
+          right: 12px
+          bottom: 12px
+          ul
+            li
+              display: inline
+              a
+                float: left
+                margin: 0 0 0 6px
+                color: #182640
+                font-weight: bold
+                display: block
+                +border-radius(4px)
+                font-size: 13px
+                padding: 0 10px
+                line-height: 24px
+                text-decoration: none
+                background-color: rgb(103,221,238)
+                @include filter-gradient(#67ddee, #13adc3, vertical)
+                $experimental-support-for-svg: true
+                @include background-image(linear-gradient(top,  rgba(103,221,238,1) 0%,rgba(19,173,195,1) 100%))        
+        .members
+          li
+            display: inline
+            a
+              display: block
+              float: left
+              margin: 0 8px 0 0
+              background: rgba(0, 0, 0, .2)
+              +border-radius(22px)
+              padding: 3px
+              width: 38px
+              height: 38px
+              +box-shadow(#495051 0 1px 0)
+              img
+                width: 38px
+                height: auto
+                +border-radius(20px)          
+
+body.parties_new
+  #body
+    form
+      .field
+        clear: both
+        +clearfix
+        padding: 0 0 20px 0
+        label
+          float: left
+          width: 120px
+        input
+          width: 400px
+        textarea
+          width: 400px
+      .members
+        label
+          width: 100%
+          float: none
+          padding: 0 0 10px 0
+          display: block
+        .token-input-list-facebook
+          width: 520px
+
+
+
+body.parties_show
+  #body
+    .members
+      table
+        tr
+          td
+            vertical-align: top
+      .member
+        height: 100%
+        float: left
+        width: 290px
+        border-right: #272d2e solid 3px
+        margin: -1px 0 0 0
+        +clearfix
+        .header
+          background: rgba(0, 0, 0, .2)
+          padding: 6px 10px
+          position: relative
+          +clearfix
+          &.hover
+            +box-shadow(rgba(0, 0, 0, .3) 0 2px 5px)
+          .information
+            float: left
+            ul
+              li
+                display: block
+              li.name
+                padding: 2px 0 6px 0
+                white-space: nowrap
+                overflow: hidden
+                a
+                  color: #CAD5D7
+                  font-size: 16px
+                  font-weight: bold
+                  text-decoration: none
+                  line-height: 1.4
+              li.state
+                text-align: center
+                width: 90px
+                background: #000
+                line-height: 24px
+                font-size: 13px
+                +border-radius(6px)
+                span
+                  form
+                    font-size: 16px
+          .icon
+            float: left
+            padding: 0 10px 0 0
+            a
+              width: 50px
+              height: 50px
+              padding: 4px
+              background: rgba(0, 0, 0, .2)
+              +border-radius(28px)
+              display: block
+              +box-shadow(#495051 0 1px 0)
+              img
+                width: 50px
+                height: auto
+                +border-radius(25px)
+      .body
+        clear: both
+        overflow-y: auto 
+        height: 100%
+        .current
+          +clearfix
+          .label
+            padding: 0 10px
+            border-bottom: #00516b solid 1px
+            background-color: rgb(1,120,159)
+            @include filter-gradient(#01789f, #006383, vertical)
+            $experimental-support-for-svg: true
+            @include background-image(linear-gradient(top,  rgba(1,120,159,1) 0%,rgba(0,99,131,1) 100%))                          
+            h2
+              line-height: 26px
+              font-size: 14px
+              font-weight: bold
+              color: #fff
+          .doing
+            clear: both
+            padding: 10px
+            background: rgba(0, 0, 0, .6)
+            cursor: pointer
+            +clearfix
+            ul
+              li.task
+                p
+                  font-size: 13px
+                  line-height: 1.6
+                  color: #fff
+                  +word-break
+            ul
+              li.empty
+                line-height: 1.6
+                font-size: 13px
+                text-align: center
+                display: block
+                background: rgba(100, 100, 100, .3)
+                padding: 8px
+                +border-radius(4px)
+                font-size: 12px
+            .actions
+              padding: 8px 0 0 0
+              display: block
+              display: none
+              cursor: pointer
+              +clearfix
+              p.help
+                a
+                  float: left
+                  text-decoration: none
+                  display: block
+                  line-height: 28px
+                  padding: 0 10px
+                  color: #fff
+                  +border-radius(4px)
+                  font-weight: bold
+              ul
+                float: right
+                display: block
+                +border-radius(4px)
+                overflow: hidden
+                li
+                  display: inline
+                  a
+                    display: block
+                    float: left
+                    font-size: 12px
+                    line-height: 28px
+                    padding: 0 10px
+                    color: #fff
+                    font-weight: bold
+                    text-decoration: none
+                    background: rgba(255, 255, 255, .1)
+                    border: #000 1px solid
+                .hold
+                  a
+                    +border-radius(4px 0 0 4px)
+                    border-right: rgba(0, 0, 0, .4) 1px solid
+                .finish
+                  a
+                    +border-radius(0 4px 4px 0)
+                    border-left: rgba(100, 100, 100, .2) 1px solid
+              
+          .activities
+            clear: both
+            +clearfix
+            .add
+              padding: 10px 10px 0 10px
+            ul
+              li
+                +clearfix
+                border-bottom: dotted #666 1px
+                display: block
+                padding: 14px 10px
+                &:first-child
+                  padding: 14px 10px
+                &:last-child
+                  border: none
+                .icon
+                  float: left
+                  padding: 0 8px 0 0
+                  a
+                    width: 36px
+                    height: 36px
+                    padding: 3px
+                    background: rgba(0, 0, 0, .2)
+                    +border-radius(21px)
+                    display: block
+                    +box-shadow(#495051 0 1px 0)
+                    img
+                      width: 36px
+                      height: auto
+                      +border-radius(18px)
+                p
+                  font-size: 13px
+                  line-height: 1.6
+              
+        .backlog
+          clear: both
+          +clearfix
+          .label
+            padding: 0 10px
+            border-bottom: #00516b solid 1px
+            background-color: rgb(1,120,159)
+            @include filter-gradient(#01789f, #006383, vertical)
+            $experimental-support-for-svg: true
+            @include background-image(linear-gradient(top,  rgba(1,120,159,1) 0%,rgba(0,99,131,1) 100%))                          
+            h2
+              line-height: 26px
+              font-size: 14px
+              font-weight: bold
+              color: #fff
+          .add
+            padding: 10px 10px 10px 10px
+            +clearfix
+            a
+              display: block
+              background: #abd3e8
+              float: left
+              font-size: 12px
+              line-height: 20px
+              padding: 0 10px
+              text-decoration: none
+              +border-radius(4px)
+              color: #162d41
+              font-weight: bold
+            form.new_task
+              clear: both
+              textarea
+                width: 100%
+                padding: 0
+                +border-radius(4px)
+                font-size: 14px
+                margin: 10px 0 0 0
+          .close
+            display: none
+          ul
+            clear: both
+            li.task
+              +clearfix
+              border-bottom: dotted #666 1px
+              display: block
+              padding: 14px 10px
+              +word-break
+              &:first-child
+                padding: 0 10px 14px 10px
+              &:last-child
+                border: none
+              .actions
+                padding: 8px 0 0 0
+                display: block
+                cursor: pointer
+                +clearfix
+                p.delete
+                  a
+                    float: left
+                    text-decoration: none
+                    display: block
+                    line-height: 28px
+                    padding: 0 10px
+                    color: #fff
+                    +border-radius(4px)
+                    font-weight: bold
+                ul
+                  float: right
+                  display: block
+                  +border-radius(4px)
+                  overflow: hidden
+                  li
+                    display: inline
+                    a
+                      display: block
+                      float: left
+                      font-size: 12px
+                      line-height: 28px
+                      padding: 0 10px
+                      color: #fff
+                      font-weight: bold
+                      text-decoration: none
+                      background: rgba(0, 0, 0, .2)
+                      border: rgba(0, 0, 0, .3) 1px solid
+                  .start
+                    a
+                      +border-radius(4px)
+                      border-right: rgba(0, 0, 0, .4) 1px solid
+              
+              .icon
+                float: left
+                padding: 0 8px 0 0
+                a
+                  width: 36px
+                  height: 36px
+                  padding: 3px
+                  background: rgba(0, 0, 0, .2)
+                  +border-radius(21px)
+                  display: block
+                  +box-shadow(#495051 0 1px 0)
+                  img
+                    width: 36px
+                    height: auto
+                    +border-radius(18px)
+              p
+                font-size: 13px
+                line-height: 1.6
+        .done
+          clear: both
+          +clearfix
+          .label
+            padding: 0 10px
+            border-bottom: #00516b solid 1px
+            background-color: rgb(1,120,159)
+            @include filter-gradient(#01789f, #006383, vertical)
+            $experimental-support-for-svg: true
+            @include background-image(linear-gradient(top,  rgba(1,120,159,1) 0%,rgba(0,99,131,1) 100%))                          
+            h2
+              line-height: 26px
+              font-size: 14px
+              font-weight: bold
+              color: #fff
+          .add
+            padding: 10px 0
+          ul
+            li.task
+              +clearfix
+              border-bottom: dotted #666 1px
+              display: block
+              padding: 14px 10px
+              &:first-child
+                padding: 14px 10px
+              &:last-child
+                border: none
+              .time
+                float: left
+                white-space: nowrap
+                height: 50px
+                width: 50px
+                text-align: center
+                line-height: 50px
+                background: rgba(0, 0, 0, .2)
+                display: block
+                margin: 0 8px 4px 0
+                +box-shadow(#495051 0 1px 0)
+                +border-radius(25px)
+              p
+                font-size: 13px
+                line-height: 1.6
+                +word-break
+              .times
+                background: rgba(100, 100, 100, .4)
+                float: right
+                margin: 8px 0 0 0
+                p
+                  font-size: 12px
+                  +inline-block
+                  line-height: 24px
+                  padding: 0 58px 0 8px
+                  position: relative
+                  .finish
+                    background: rgba(0, 0, 0, .4)
+                    font-size: 10px
+                    height: 18px
+                    padding: 0 6px
+                    line-height: 18px
+                    display: block
+                    position: absolute
+                    right: 6px
+                    top: 3px
+              .redo
+                a
+                  display: block
+                  float: left

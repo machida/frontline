@@ -1,0 +1,104 @@
+body
+  background: image_url("body.gif")
+  color: #cad5d7
+#wrapper
+  overflow-y: hidden
+  min-width: 1000px
+#header
+  +clearfix
+  border-bottom: #495051 solid 1px
+  .header
+    border-bottom: #272d2e 4px solid
+    position: relative
+    +clearfix
+    h1
+      padding: 0 0 0 16px
+      line-height: 52px
+      float: left
+      font-size: 30px
+      font-weight: bold
+      a
+        text-decoration: none
+        color: #cad5d7
+    nav.members
+      padding: 4px 0 0 16px
+      float: left
+      ul
+        li
+          display: inline
+          a
+            display: block
+            float: left
+            margin: 0 8px 0 0
+            background: rgba(0, 0, 0, .2)
+            +border-radius(22px)
+            padding: 3px
+            width: 38px
+            height: 38px
+            +box-shadow(#495051 0 1px 0)
+            img
+              width: 38px
+              height: auto
+              +border-radius(20px)
+    .times
+      line-height: 52px
+      padding: 0 20px 0 0
+      position: absolute
+      right: 0
+      .now
+        float: left
+        margin: 0 10px 0 0
+      .remain
+        float: left
+        background: #2a3031
+        line-height: 36px
+        margin: 8px 10px 0 0
+        font-size: 26px
+        padding: 0 20px
+        +border-radius(4px)
+      .leave
+        a
+          float: left
+          line-height: 23px
+          margin: 20px 0 0 0
+          font-size: 13px
+          padding: 0 14px
+          +border-radius(4px)
+          text-decoration: none
+          color: #fff
+          font-weight: bold
+          background-color: rgb(1,120,159)
+          @include filter-gradient(#01789f, #006383, vertical)
+          $experimental-support-for-svg: true
+          @include background-image(linear-gradient(top,  rgba(1,120,159,1) 0%,rgba(0,99,131,1) 100%))                          
+          
+    
+div#main
+  margin: 0 0 0 50px
+  position: absolute
+  +clearfix
+nav#global
+  background: #222
+  position: absolute
+  left: 0
+  top: 0
+  width: 40px
+  padding: 10px 5px
+  +box-shadow(#000 0 0 4px inset)
+  a
+    display: block
+    width: 40px
+    height: 40px
+    background: rgba(200, 200, 200, .1)
+    +border-radius(20px)
+    margin: 0 0 10px 0
+#notice
+  position: absolute
+  top: 30px
+  background: rgba(0, 0, 0, .8)
+  width: 300px
+  height: 60px
+  line-height: 60px
+  z-index: 100
+  font-size: 13px
+  text-align: center
