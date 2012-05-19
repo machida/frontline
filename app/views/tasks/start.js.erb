@@ -2,5 +2,5 @@
   alert("You have a current task!")
 <% else %>
   $('#<%= dom_id(@task) %>').remove().fadeOut()
-  $('#<%= dom_id(current_user) %> .current .doing ul').prepend("<%= j(render @task) %>").fadeIn()
+  $('#<%= dom_id(current_user) %> .current .doing ul.tasks').prepend("<%= j(render @task) %>").fadeIn()
 <% end %>

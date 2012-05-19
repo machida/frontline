@@ -1,2 +1,2 @@
 $('#<%= dom_id(@task) %>').remove().fadeOut()
-$('#<%= dom_id(current_user) %> .backlog ul').prepend("<%= j(render @task) %>").fadeIn()
+$('#<%= dom_id(current_user) %> .backlog ul.tasks').prepend("<%= j(render @task) %>").fadeIn()
