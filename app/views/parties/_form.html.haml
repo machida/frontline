@@ -10,14 +10,8 @@
   .field.name
     = f.label :name
     = f.text_field :name
-  .field.description
-    = f.label :description
-    = f.text_area :description
   .field.members
     = f.label :member_tokens
     = f.text_field :member_tokens, "data-pre" => @party.members.map(&:attributes).to_json
-  .field.end_at
-    = f.label :end_at
-    = f.time_select :end_at, :minute_step => 15
   .actions
     = f.submit

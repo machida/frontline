@@ -8,11 +8,6 @@
       %h2.name
         =link_to party do
           = party.name
-      .description
-        = party.description
-      .end_at
-        = party.end_at.to_date.to_s(:db)
-        = party.end_at.to_s(:time)
       .members
         %ul
           - party.members.each do |member|
