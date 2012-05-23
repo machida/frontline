@@ -1,25 +1,27 @@
 body
-  background: image_url("body.gif")
-  color: #cad5d7
+  background: image_url("body.gif") $basic_bg_color
+  color: $basic_font_color
+  font: $basic_font_famiry
 #wrapper
   overflow-y: hidden
   min-width: 1000px
 #header
   +clearfix
-  border-bottom: #495051 solid 1px
+  border-bottom: $basic_border_color solid 1px
   .header
-    border-bottom: #272d2e 4px solid
+    border-bottom: $basic_border_color 8px solid
+    $header_height: 58px
     position: relative
     +clearfix
     h1
       padding: 0 0 0 16px
-      line-height: 52px
+      line-height: $header_height
       float: left
-      font-size: 30px
+      font-size: 26px
       font-weight: bold
       a
         text-decoration: none
-        color: #cad5d7
+        +basic_link
     nav.members
       padding: 4px 0 0 16px
       float: left
@@ -72,26 +74,31 @@ body
           $experimental-support-for-svg: true
           @include background-image(linear-gradient(top,  rgba(1,120,159,1) 0%,rgba(0,99,131,1) 100%))                          
           
-    
+
+$global_widht: 70px  
+ 
 div#main
-  margin: 0 0 0 50px
+  margin: 0 0 0 $global_widht
   position: absolute
   +clearfix
 nav#global
-  background: #222
+  background: $global_bg
   position: absolute
   left: 0
   top: 0
-  width: 40px
-  padding: 10px 5px
-  +box-shadow(#000 0 0 4px inset)
-  a
-    display: block
-    width: 40px
-    height: 40px
-    background: rgba(200, 200, 200, .1)
-    +border-radius(20px)
-    margin: 0 0 10px 0
+  width: $global_widht
+  +box-shadow(#000 0 0 5px 1px inset)
+  ul
+    padding: 6px 10px
+    +clearfix
+    li
+      a
+        display: block
+        width: 50px
+        height: 50px
+        background: rgba(200, 200, 200, .1)
+        +border-radius(25px)
+        margin: 0 0 10px 0
 #notice
   position: absolute
   top: 30px

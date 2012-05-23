@@ -1,0 +1,67 @@
+$basic_font_famiry: 13px/1.231 "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", 'メイリオ', sans-serif
+$basic_bg_color: #223b51
+$basic_font_color: #c8e0f4
+$basic_right_color: #fff
+$basic_border_color: hsla(218, 75%, 9%, .4)
+
+=basic_link
+  &:link,
+  &:visited
+    color: $basic_font_color
+  &:hover,
+  &:active
+    color: $basic_right_color
+  
+
+$global_bg: #061421
+
+$light_bg_color: #dff0fe
+$light_font_color: #000
+
+$member_header_bg_color: hsla(208, 28%, 39%, .35)
+
+$label_font_color: #172c42
+$label_text_shadow: #8bb0cf 0 1px 0
+$label_height: 32px
+$label_font_size: 18px
+$label_border_color: #103f68
+$label_box_shadow: rgba(255, 255, 255, .4) 0 0 2px inset
+
+=label
+  background-color: #7da8ca
+  @include filter-gradient(#7da8ca, #6690b3, vertical)
+  $experimental-support-for-svg: true
+  @include background-image(linear-gradient(top,  hsla(206,42%,64%,1) 0%,hsla(207,34%,55%,1) 100%))
+  box-shadow: $label_box_shadow
+  border-top: #103f68 solid 1px
+  border-bottom: #103f68 solid 1px
+  padding: 0 0 0 12px
+  cursor: pointer
+  &:hover
+    background-color: #48a6f5
+    @include filter-gradient(#48a6f5, #308ddc, vertical)
+    $experimental-support-for-svg: true
+    @include background-image(linear-gradient(top,  hsla(207,90%,62%,1) 0%,hsla(208,71%,53%,1) 100%))
+  h2
+    color: $label_font_color
+    text-shadow: $label_text_shadow
+    font:
+      size: $label_font_size
+      weight: bold
+    line-height: $label_height
+
+$blue_button_shadow: rgba(255, 255, 255, .6) 0 0 1px inset, rgba(0, 0, 0, .4) 0 2px 2px
+=blue_button_color
+  background-color: #84aac9
+  @include filter-gradient(#84aac9, #567a9a, vertical)
+  $experimental-support-for-svg: true
+  @include background-image(linear-gradient(top,  hsla(207,39%,65%,1) 0%,hsla(208,28%,47%,1) 100%))
+
+=blue_button
+  display: block
+  +blue_button_color
+  +box-shadow($blue_button_shadow)
+  cursor: pointer
+  color: $label_font_color
+  font-weight: bold
+  text-shadow: $label_text_shadow
