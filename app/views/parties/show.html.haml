@@ -1,3 +1,21 @@
+:javascript
+  $(function(){
+    var h, m, t;
+    h = $(".end").data("hour");
+    m = $(".end").data("min");
+    t = new Timer(h, m);
+    t.start();
+    $('.end .best_in_place').live('ajax:success', function(event, data, status, xhr) {
+      var json;
+      console.log(data);
+      json = $.parseJSON(data);
+      $(".end").attr("data-hour", json.end_hour).attr("data-min", json.end_min);
+      t.stop();
+      t = new Timer(json.end_hour, json.end_min);
+      return t.start();
+    });
+  });
+
 - content_for :header do
   - if notice
     #notice
