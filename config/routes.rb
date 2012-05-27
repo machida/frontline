@@ -1,5 +1,8 @@
 Frontline::Application.routes.draw do
 
+  get "settings/edit"   => "settings#edit"
+  put "settings/update" => "settings#update"
+
   resources :activities
 
   resources :joins
@@ -14,14 +17,10 @@ Frontline::Application.routes.draw do
     end
   end
 
-  get "sessions/create"
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
+  resources :users, :only => [:index]
 
-  get "sessions/destroy"
-
-  resources :users
-
-  match '/auth/:provider/callback', to: 'sessions#create'
-  match "/signout" => "sessions#destroy", :as => :signout
+  match '/users/auth/:provider/callback' => 'authentications#create'
 
   root :to => 'parties#index'
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120519100019) do
+ActiveRecord::Schema.define(:version => 20120527040434) do
 
   create_table "activities", :force => true do |t|
     t.integer  "task_id"
@@ -19,6 +19,21 @@ ActiveRecord::Schema.define(:version => 20120519100019) do
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "authentications", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "screen_name"
+    t.string   "access_token"
+    t.string   "access_secret"
+    t.string   "bio"
+    t.string   "image_url"
+    t.string   "web_url"
+    t.string   "last_tid"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "joins", :force => true do |t|
@@ -56,10 +71,18 @@ ActiveRecord::Schema.define(:version => 20120519100019) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "image"
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "email",                                 :default => "", :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                         :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                                            :null => false
+    t.datetime "updated_at",                                            :null => false
   end
 
 end

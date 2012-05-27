@@ -5,11 +5,3 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-User.create(name: 'yoshida')
-User.create(name: 'machida')
-User.create(name: 'yoshinao0330')
-
-Party.create(name: 'p4d hackason #1')
-Party.create(name: 'p4d hackason #2')
-Party.create(name: 'p4d hackason #3')

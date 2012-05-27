@@ -2,6 +2,7 @@ $ ->
   $('#party_member_tokens').tokenInput '/users.json', 
     hintText: 'メンバーを選択してください' 
     theme: 'facebook'
+    prePopulate: $('#party_member_tokens').data('load')
   $('.best_in_place').best_in_place()
 
   $("#global").css "height", $(window).height()

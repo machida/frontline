@@ -1,22 +1,16 @@
 class User < ActiveRecord::Base
-  attr_accessible :image, :name, :provider, :uid
+  attr_accessible :image, :name, :email, :password, :remember_me, :password_confirmation
 
+  has_many :authentications
   has_many :parties
   has_many :joins
-#  has_many :invited_parties, :through => :joins
   has_many :invited_parties, :through => :joins, :source => :party
   has_many :tasks
   has_many :activities
 
   validates :name, :presence => true
-  validates :uid, :uniqueness => {:scope => :provider}
+  validates :email, :password, :presence => true, :on => :create
+#  validates :uid, :uniqueness => {:scope => :provider}
 
-  def self.create_with_omniauth(auth)
-    create! do |user|
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
-      user.name = auth["info"]["nickname"]
-      user.image = auth["info"]["image"]
-    end
-  end
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :omniauthable
 end

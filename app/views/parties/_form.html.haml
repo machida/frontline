@@ -12,6 +12,6 @@
     = f.text_field :name
   .field.members
     = f.label :member_tokens
-    = f.text_field :member_tokens, "data-pre" => @party.members.map(&:attributes).to_json
+    = f.text_field :member_tokens, "data-load" => @party.members.map(&:attributes).to_json
   .actions
     = f.submit

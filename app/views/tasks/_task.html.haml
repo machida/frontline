@@ -33,7 +33,7 @@
     .add
       = form_tag "/activities", :remote => true do
         = hidden_field_tag :task_id, task.id
-        = text_area_tag :content, nil, :rows => 3, :cols => 15
+        = text_area_tag :content, nil, :rows => 3, :cols => 15, :id => "new_activity_#{dom_id(task)}"
         = submit_tag "new activity"
   .activities
     %ul

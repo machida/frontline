@@ -1,7 +1,7 @@
 class ActivitiesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user!
   respond_to :html, :json, :js
-  
+
   # GET /activities
   # GET /activities.json
   def index

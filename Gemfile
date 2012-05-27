@@ -22,9 +22,10 @@ end
 
 gem 'jquery-rails'
 
-gem 'omniauth-twitter'
-
 gem 'best_in_place'
+
+gem 'devise'
+gem 'oa-oauth', :require => "omniauth/oauth"
 
 group :development do
   gem 'erb2haml'
