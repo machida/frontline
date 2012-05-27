@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :image, :name, :email, :password, :remember_me, :password_confirmation
+  attr_accessible :id, :image, :name, :email, :password, :remember_me, :password_confirmation
 
   has_many :authentications
   has_many :parties
