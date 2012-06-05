@@ -96,6 +96,7 @@ GEM
       faraday (~> 0.6.1)
       multi_json (>= 0.0.5)
     orm_adapter (0.0.5)
+    pg (0.13.2)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -160,6 +161,7 @@ DEPENDENCIES
   erb2haml
   jquery-rails
   oa-oauth
+  pg
   rails (= 3.2.3)
   sass-rails (~> 3.2.3)
   sqlite3
