@@ -30,7 +30,7 @@
         - @party.members.each do |member|
           = content_tag_for :li, member do
             %a{:href => ""}
-              = image_tag member.image ? member.image : "dummy.png"
+              = image_tag member.image_url(:thumb)
     .times
       .now
       .remain
@@ -51,7 +51,7 @@
               .header
                 %h1.icon
                   %a{:href => ""}
-                    = image_tag member.image ? member.image : "dummy.png"
+                    = image_tag member.image_url(:thumb)
                 .information
                   %ul
                     %li.name

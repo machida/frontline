@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :id, :image, :name, :email, :password, :remember_me, :password_confirmation
+  attr_accessible :id, :image, :remove_image, :name, :email, :password, :remember_me, :password_confirmation
 
   has_many :authentications
   has_many :parties
@@ -9,8 +9,15 @@ class User < ActiveRecord::Base
   has_many :activities
 
   validates :name, :presence => true
-  validates :email, :password, :presence => true, :on => :create
+  validates :password, :presence => true, :on => :create
 #  validates :uid, :uniqueness => {:scope => :provider}
 
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :omniauthable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+
+  mount_uploader :image, ImageUploader
+
+  protected
+  def password_required?
+    false
+  end
 end

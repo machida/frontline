@@ -27,6 +27,9 @@ gem 'best_in_place'
 gem 'devise'
 gem 'oa-oauth', :require => "omniauth/oauth"
 
+gem 'carrierwave'
+gem "rmagick"
+
 group :development do
   gem 'sqlite3'
   gem 'erb2haml'

@@ -1,7 +1,7 @@
 = content_tag_for :li, activity, :class => "activity" do
   .icon
     %a{:href => ""}
-      = image_tag activity.user.image ? activity.user.image : "dummy.png", alt: activity.user.name, class: "avatar size128"
+      = image_tag activity.user.image_url(:thumb), alt: activity.user.name, class: "avatar size128"
   %p= nl2br activity.content
   - if user_signed_in? && current_user == activity.user
     %p= link_to "delete", activity_path(activity), :method => :delete, :remote => true
