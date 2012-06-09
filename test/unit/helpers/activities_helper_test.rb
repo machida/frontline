@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class ActivitiesHelperTest < ActionView::TestCase
+class CommentsHelperTest < ActionView::TestCase
 end

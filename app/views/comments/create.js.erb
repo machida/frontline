@@ -1,0 +1,2 @@
+$('#<%= dom_id(@comment.task) %> textarea').val("")
+$('#<%= dom_id(@comment.task) %> .comments ul').prepend("<%= j(render @comment) %>").fadeIn()

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :joins
   has_many :invited_parties, :through => :joins, :source => :party
   has_many :tasks
-  has_many :activities
+  has_many :comments
 
   validates :name, :presence => true
   validates :password, :presence => true, :on => :create

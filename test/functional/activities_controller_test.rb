@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class ActivitiesControllerTest < ActionController::TestCase
+class CommentsControllerTest < ActionController::TestCase
   setup do
-    @activity = activities(:one)
+    @comment = comments(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:activities)
+    assert_not_nil assigns(:comments)
   end
 
   test "should get new" do
@@ -16,34 +16,34 @@ class ActivitiesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create activity" do
-    assert_difference('Activity.count') do
-      post :create, activity: { content: @activity.content, user_id: @activity.user_id }
+  test "should create comment" do
+    assert_difference('Comment.count') do
+      post :create, comment: { content: @comment.content, user_id: @comment.user_id }
     end
 
-    assert_redirected_to activity_path(assigns(:activity))
+    assert_redirected_to comment_path(assigns(:comment))
   end
 
-  test "should show activity" do
-    get :show, id: @activity
+  test "should show comment" do
+    get :show, id: @comment
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @activity
+    get :edit, id: @comment
     assert_response :success
   end
 
-  test "should update activity" do
-    put :update, id: @activity, activity: { content: @activity.content, user_id: @activity.user_id }
-    assert_redirected_to activity_path(assigns(:activity))
+  test "should update comment" do
+    put :update, id: @comment, comment: { content: @comment.content, user_id: @comment.user_id }
+    assert_redirected_to comment_path(assigns(:comment))
   end
 
-  test "should destroy activity" do
-    assert_difference('Activity.count', -1) do
-      delete :destroy, id: @activity
+  test "should destroy comment" do
+    assert_difference('Comment.count', -1) do
+      delete :destroy, id: @comment
     end
 
-    assert_redirected_to activities_path
+    assert_redirected_to comments_path
   end
 end
