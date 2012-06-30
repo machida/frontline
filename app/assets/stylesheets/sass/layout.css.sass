@@ -5,6 +5,31 @@ body
 #wrapper
   overflow-y: hidden
   min-width: 1000px
+#popup
+  display: block
+  width: 100%
+  position: absolute
+  top: 100px
+  left: 0px
+  .popupwrap
+    +border-radius(4px)
+    width: 400px
+    margin: 0 auto
+    background: $light_bg_color
+    border: $basic_border_color solid 1px
+    .headlabel
+      +border-radius(4px)
+      font-size: 16px
+      +label
+    .messagearea
+      color: $light_font_color
+      padding: 12px
+      font-size: 14px
+      p
+        margin-bottom: 1em
+#popup.disable
+  display: none
+
 #header
   +clearfix
   border-bottom: $basic_border_color solid 1px
