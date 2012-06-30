@@ -14,6 +14,16 @@
       t = new Timer(json.end_hour, json.end_min);
       return t.start();
     });
+
+    var remain = $("header#header").find(".remain").text();
+    if(remain === "0"){
+      popup.setView("完了予定時間", "<select><option>a</option></select>");
+        popup.visible();
+        $("#popup").on("click", function(){
+            popup.invisible();
+        });
+    }
+
   });
 
 - content_for :header do
@@ -41,6 +51,7 @@
       .leave
         %a{:href => ""} 退席
 
+.testtest
 .members
   %table
     %tbody
@@ -91,3 +102,4 @@
                     %h2 Done
                   %ul.tasks
                     = render member.tasks.done(@party.id)
+

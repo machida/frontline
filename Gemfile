@@ -28,7 +28,8 @@ gem 'devise'
 gem 'oa-oauth', :require => "omniauth/oauth"
 
 gem 'carrierwave'
-gem "rmagick"
+#gem "rmagick"
+
 
 group :development do
   gem 'sqlite3'
