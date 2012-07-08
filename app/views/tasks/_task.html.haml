@@ -1,6 +1,10 @@
 = content_tag_for :li, task, :class => "task" do
   - if user_signed_in?
     .comments
+      .close
+        閉じる
+      .theme
+        = nl2br task.content
       %ul
         %li.comment= render task.comments
       .add
