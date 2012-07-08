@@ -166,6 +166,8 @@ body.parties_show
         clear: both
         overflow-y: auto 
         height: 100%
+        .comments
+          display: none
         .current
           +clearfix
           .label
@@ -313,7 +315,7 @@ body.parties_show
                 border: none
                 +border-radius(4px)
           .comments
-            .activity
+            .comment
               clear: both
               padding: 0 0 14px 0
               +clearfix
@@ -327,8 +329,6 @@ body.parties_show
               display: block
               padding: 14px 10px
               +word-break
-              &:first-child
-                padding: 0 10px 14px 10px
               &:last-child
                 border: none
               .actions
