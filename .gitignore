@@ -15,6 +15,7 @@
 /tmp
 
 .rvmrc
+.rspec
 
 .sass-cache/
 public/assets/
