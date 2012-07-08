@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/ttilley/rb-fsevent.git
+  revision: f36a8cd01b49a6ce2a26d9e1083b5f6e6722c470
+  branch: pre-compiled-gem-one-off
+  specs:
+    rb-fsevent (0.4.3.1pre1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -148,7 +155,6 @@ GEM
       rdoc (~> 3.4)
       thor (~> 0.14.6)
     rake (0.9.2.2)
-    rb-fsevent (0.4.3.1)
     rdoc (3.12)
       json (~> 1.4)
     rmagick (2.13.1)
@@ -224,7 +230,7 @@ DEPENDENCIES
   jquery-rails
   pg
   rails (= 3.2.3)
-  rb-fsevent (= 0.4.3.1)
+  rb-fsevent!
   rmagick
   rspec-rails (= 2.10.0)
   sass-rails (~> 3.2.3)
