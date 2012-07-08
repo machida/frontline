@@ -16,8 +16,6 @@ $ ->
   $("#header .times").css "left", $("#wrapper").width() - 420
   $(".member .header .state").click ->
     $(".member .header .selectstate").toggle()
-  $(".doing").click ->
-    $(".current .actions").toggle()
   $(".comments .label").click ->
     $(".comments ul").toggle()
   $("#notice").css "left", $(window).width() / 2 - $("#notice").width() / 2

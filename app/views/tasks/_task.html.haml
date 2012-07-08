@@ -1,15 +1,23 @@
 = content_tag_for :li, task, :class => "task" do
+  - if user_signed_in?
+    .comments
+      %ul
+        %li.comment= render task.comments
+      .add
+        = form_tag "/comments", :remote => true do
+          = hidden_field_tag :task_id, task.id
+          = text_area_tag :content, nil, :rows => 3, :cols => 15, :id => "new_comment_#{dom_id(task)}"
+          = submit_tag "new comment"
   %p
+    %span.comments
+      4
     = nl2br task.content
-    .helpme
-      = "HELP ME!!!" if task.help
-    - if task.state == "done"
-      .times
-        %p
-          %span.working
-            = distance_of_time_in_words(task.started_at, task.finished_at)
-          %span.finish
-            = task.finished_at.to_s(:time)
+  - if task.state == "done"
+    .times
+      %span.working
+        = distance_of_time_in_words(task.started_at, task.finished_at)
+      %span.finish
+        = task.finished_at.to_s(:time)
   - case task.state
   - when "current"
     - if user_signed_in? && current_user == task.user
@@ -17,25 +25,14 @@
         %ul
           %li.hold= link_to "hold", hold_party_task_path(@party, task), :remote => true
           %li.finish= link_to "finish", finish_party_task_path(@party, task), :remote => true
-        %p.help
-          = link_to help_message(task), help_party_task_path(@party, task), :remote => true
   - when "backlog"
     - if user_signed_in? && current_user == task.user
       .actions
         %ul
           %li.start= link_to "start", start_party_task_path(@party, task), :remote => true
-        %p.delete= link_to "delete", party_task_path(@party, task), :method => :delete, :remote => true
+          %li.delete= link_to "delete", party_task_path(@party, task), :method => :delete, :remote => true
   - when "done"
     - if user_signed_in? && current_user == task.user
-      %p.redo= link_to "redo", redo_party_task_path(@party, task), :remote => true
-
-  - if user_signed_in?
-    .comments
-      .add
-        = form_tag "/comments", :remote => true do
-          = hidden_field_tag :task_id, task.id
-          = text_area_tag :content, nil, :rows => 3, :cols => 15, :id => "new_comment_#{dom_id(task)}"
-          = submit_tag "new comment"
-    
-      %ul
-        %li.comment= render task.comments
+      .actions
+        %ul
+          %li.redo= link_to "redo", redo_party_task_path(@party, task), :remote => true

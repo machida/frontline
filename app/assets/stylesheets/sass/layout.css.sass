@@ -50,6 +50,7 @@ body
       .now
         float: left
         margin: 0 10px 0 0
+        font-size: 16px
       .remain
         float: left
         background: #2a3031
@@ -58,21 +59,22 @@ body
         font-size: 26px
         padding: 0 20px
         +border-radius(4px)
+      .end
+        float: left
       .leave
+        float: left
+        padding: 0 0 0 10px
         a
           float: left
-          line-height: 23px
-          margin: 20px 0 0 0
-          font-size: 13px
+          line-height: 30px
+          margin: 12px 0 0 0
+          font-size: 14px
           padding: 0 14px
           +border-radius(4px)
           text-decoration: none
           color: #fff
           font-weight: bold
-          background-color: rgb(1,120,159)
-          @include filter-gradient(#01789f, #006383, vertical)
-          $experimental-support-for-svg: true
-          @include background-image(linear-gradient(top,  rgba(1,120,159,1) 0%,rgba(0,99,131,1) 100%))                          
+          +blue_button                          
           
 
 $global_widht: 70px  

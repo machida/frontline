@@ -9,18 +9,10 @@ body.parties_index
           display: inline
           a
             float: left
-            line-height: 23px
-            margin: 0 10px 0 0
-            font-size: 13px
-            padding: 0 14px
+            +blue_button
+            line-height: 28px
+            padding: 0 10px
             +border-radius(4px)
-            text-decoration: none
-            color: #fff
-            font-weight: bold
-            background-color: rgb(1,120,159)
-            @include filter-gradient(#01789f, #006383, vertical)
-            $experimental-support-for-svg: true
-            @include background-image(linear-gradient(top,  rgba(1,120,159,1) 0%,rgba(0,99,131,1) 100%))
     div.parties
       padding: 16px  16px
       +clearfix
@@ -47,18 +39,10 @@ body.parties_index
               a
                 float: left
                 margin: 0 0 0 6px
-                color: #182640
-                font-weight: bold
-                display: block
-                +border-radius(4px)
-                font-size: 13px
                 padding: 0 10px
-                line-height: 24px
-                text-decoration: none
-                background-color: rgb(103,221,238)
-                @include filter-gradient(#67ddee, #13adc3, vertical)
-                $experimental-support-for-svg: true
-                @include background-image(linear-gradient(top,  rgba(103,221,238,1) 0%,rgba(19,173,195,1) 100%))        
+                line-height: 28px
+                +border-radius(4px)
+                +blue_button       
         .members
           li
             display: inline
@@ -166,84 +150,20 @@ body.parties_show
         clear: both
         overflow-y: auto 
         height: 100%
-        .comments
-          display: none
-        .current
-          +clearfix
-          .label
-            +label
-          .doing
-            clear: both
-            padding: 10px
-            background: $light_bg_color
-            cursor: pointer
-            +clearfix
-            .comments
-              a
-                +label
-                float: left
-            ul
-              li.task
-                p
-                  font-size: 13px
-                  line-height: 1.6
-                  color: $light_font_color
-                  +word-break
-            ul
-              li.empty
-                line-height: 1.6
-                font-size: 13px
-                text-align: center
-                display: block
-                background: rgba(100, 100, 100, .3)
-                padding: 8px
-                +border-radius(4px)
-                font-size: 12px
-            .actions
-              padding: 8px 0 0 0
+        li.task
+          p
+            span.comments
               display: block
-              display: none
-              cursor: pointer
-              +clearfix
-              p.help
-                a
-                  float: left
-                  text-decoration: none
-                  display: block
-                  line-height: 28px
-                  padding: 0 10px
-                  color: #fff
-                  +border-radius(4px)
-                  font-weight: bold
-              ul
-                float: right
-                display: block
-                +border-radius(4px)
-                padding: 0 0 3px 0
-                +clearfix
-                li
-                  display: inline
-                  a
-                    +blue_button
-                    display: block
-                    float: left
-                    line-height: 22px
-                    padding: 0 10px
-                    +box-shadow(rgba(255, 255, 255, .6) 0 0 1px inset, rgba(0, 0, 0, .2) 0 1px 1px)
-                .hold
-                  a
-                    +border-radius(4px 0 0 4px)
-                    border-right: $label_font_color 1px solid
-                .finish
-                  a
-                    +border-radius(0 4px 4px 0)
-                    border-left: $label_text_shadow 1px solid
-              
-          .comments
+              float: right
+              padding: 0 10px
+              line-height: 24px
+              font-size: 16px
+              +blue_button
+              +border-radius(4px)
+          div.comments
+            display: block
             +comments
-          .comments
             clear: both
-            +clearfix
             .add
               padding: 10px 10px 0 10px
             ul
@@ -274,7 +194,91 @@ body.parties_show
                 p
                   font-size: 13px
                   line-height: 1.6
-              
+            
+          .actions
+            padding: 12px 0 0 0
+            display: block
+            +clearfix
+            p.help
+              a
+                float: left
+                text-decoration: none
+                display: block
+                line-height: 28px
+                padding: 0 10px
+                color: #fff
+                +border-radius(4px)
+                font-weight: bold
+            ul
+              display: block
+              padding: 0 0 3px 0
+              +clearfix
+              li
+                display: inline
+                a
+                  +blue_button
+                  display: block
+                  float: left
+                  line-height: 26px
+                  padding: 0 14px
+                  +box-shadow(rgba(255, 255, 255, .6) 0 0 1px inset, rgba(0, 0, 0, .2) 0 1px 1px)
+              .hold
+                a
+                  +border-radius(4px 0 0 4px)
+                  border-right: $label_font_color 1px solid
+              .finish
+                a
+                  +border-radius(0 4px 4px 0)
+                  border-left: $label_text_shadow 1px solid
+              .redo
+                a
+                  float: left
+                  +border-radius(4px)
+                  +blue_button
+              .start
+                a
+                  +border-radius(4px)
+                  +blue_button
+                  float: right
+              .delete
+                a
+                  +border-radius(4px)
+                  +blue_button
+                  float: left
+        .current
+          +clearfix
+          .label
+            +label
+          .doing
+            clear: both
+            padding: 10px
+            background: $light_bg_color
+            +clearfix
+            ul
+              li.task
+                p
+                  font-size: 13px
+                  line-height: 1.6
+                  color: $light_font_color
+                  +word-break
+                .actions
+                  float: none
+                  width: 144px
+                  margin: 0 auto
+                  a
+                    width: 43px
+                    float: left
+                    text-align: center
+            ul
+              li.empty
+                line-height: 1.6
+                font-size: 13px
+                text-align: center
+                display: block
+                background: rgba(100, 100, 100, .3)
+                padding: 8px
+                +border-radius(4px)
+                font-size: 12px              
         .backlog
           clear: both
           +clearfix
@@ -314,13 +318,6 @@ body.parties_show
                 padding: 0
                 border: none
                 +border-radius(4px)
-          .comments
-            .comment
-              clear: both
-              padding: 0 0 14px 0
-              +clearfix
-          .close
-            display: none
           ul
             clear: both
             li.task
@@ -331,44 +328,6 @@ body.parties_show
               +word-break
               &:last-child
                 border: none
-              .actions
-                padding: 8px 0 0 0
-                display: block
-                cursor: pointer
-                +clearfix
-                p.delete
-                  a
-                    float: left
-                    text-decoration: none
-                    display: block
-                    line-height: 28px
-                    padding: 0 10px
-                    color: #fff
-                    +border-radius(4px)
-                    font-weight: bold
-                ul
-                  float: right
-                  display: block
-                  +border-radius(4px)
-                  overflow: hidden
-                  li
-                    display: inline
-                    a
-                      display: block
-                      float: left
-                      font-size: 12px
-                      line-height: 28px
-                      padding: 0 10px
-                      color: #fff
-                      font-weight: bold
-                      text-decoration: none
-                      background: rgba(0, 0, 0, .2)
-                      border: rgba(0, 0, 0, .3) 1px solid
-                  .start
-                    a
-                      +border-radius(4px)
-                      border-right: rgba(0, 0, 0, .4) 1px solid
-              
               .icon
                 float: left
                 padding: 0 8px 0 0
@@ -387,9 +346,6 @@ body.parties_show
               p
                 font-size: 13px
                 line-height: 1.6
-              .comments
-                a
-                  +label
         .done
           margin: 0 0 60px 0
           clear: both
@@ -417,7 +373,7 @@ body.parties_show
                 line-height: 50px
                 background: rgba(0, 0, 0, .2)
                 display: block
-                margin: 0 8px 4px 0
+                margin: 0 12px 4px 0
                 +box-shadow(#495051 0 1px 0)
                 +border-radius(25px)
               p
@@ -427,26 +383,21 @@ body.parties_show
               .times
                 background: rgba(100, 100, 100, .4)
                 float: right
-                margin: 8px 0 0 0
-                p
-                  font-size: 12px
-                  +inline-block
-                  line-height: 24px
-                  padding: 0 58px 0 8px
-                  position: relative
-                  .finish
-                    background: rgba(0, 0, 0, .4)
-                    font-size: 10px
-                    height: 18px
-                    padding: 0 6px
-                    line-height: 18px
-                    display: block
-                    position: absolute
-                    right: 6px
-                    top: 3px
-              .redo
-                a
+                margin: 12px 0 0 0
+                padding: 6px
+                font-size: 12px
+                +inline-block
+                line-height: 24px
+                padding: 0 58px 0 8px
+                position: relative                  
+                .working
+                .finish
+                  background: rgba(0, 0, 0, .4)
+                  font-size: 10px
+                  height: 18px
+                  padding: 0 6px
+                  line-height: 18px
                   display: block
-                  float: left
-              .comments
-                +comments
+                  position: absolute
+                  right: 6px
+                  top: 3px
