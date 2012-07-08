@@ -1,13 +1,4 @@
 = content_tag_for :li, task, :class => "task" do
-  .comments
-    %ul
-      = render task.comments
-    - if user_signed_in?
-      .add
-        = form_tag "/comments", :remote => true do
-          = hidden_field_tag :task_id, task.id
-          = text_area_tag :content, nil, :rows => 3, :cols => 15, :id => "new_activity_#{dom_id(task)}"
-          = submit_tag "new activity"
   %p
     = nl2br task.content
     .helpme

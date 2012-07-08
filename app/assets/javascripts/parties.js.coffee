@@ -12,7 +12,7 @@ $ ->
   if $(".members table").is($(this).width() >= $("#wrapper").width())
     $("#main").css "width", $(".members table").width()
   else
-    $("#main").css "width", $("#wrapper").width() - 50
+    $("#main").css "width", $("#wrapper").width() - 70
   $("#header .times").css "left", $("#wrapper").width() - 420
   $(".member .header .state").click ->
     $(".member .header .selectstate").toggle()
