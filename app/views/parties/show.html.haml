@@ -75,13 +75,20 @@
                       - else
                         %li.empty
                           未選択
+                    .comments
+                      %a
+                        aaaa
                 .backlog
                   .label
                     %h2 Backlog
                   - if user_signed_in? && current_user == member
                     .add
                       = form_for [@party, member.tasks.build], :remote => true do |f|
-                        = f.text_area :content, :rows => 3, :cols => 30
+                        :javascript
+                          $(document).ready(function(){
+                            $("#task_content").autoGrow();
+                          });
+                        = f.text_area :content, :rows => 7, :cols => 29
                         = f.submit
                   %ul.tasks
                     = render member.tasks.backlog(@party.id)
