@@ -1,3 +1,49 @@
 =word-break
   word-break: break-all
   word-wrap: break-word
+
+=activities
+  width: 300px
+  overflow: visible
+  z-index: 97
+  height: auto
+  position: absolute
+  left: 300px
+  background: rgba(0, 0, 0, .6)
+  border: 10px solid rgba(100, 100, 100, .3)
+  +border-radius(4px)
+  +box-shadow(rgba(0, 0, 0, 1) 0 2px 8px)
+  .add
+    padding: 10px 10px 0 10px
+  ul
+    li
+      +clearfix
+      border-bottom: dotted #333 1px
+      display: block
+      padding: 14px 10px
+      clear: both
+      &:first-child
+        padding: 14px 10px
+      &:last-child
+        border: none
+      .icon
+        float: left
+        padding: 0 8px 0 0
+        a
+          width: 36px
+          height: 36px
+          padding: 3px
+          background: rgba(0, 0, 0, .2)
+          +border-radius(21px)
+          display: block
+          +box-shadow(#495051 0 1px 0)
+          img
+            width: 36px
+            height: auto
+            +border-radius(18px)
+      p
+        font-size: 13px
+        line-height: 1.6
+        display: block
+        float: right
+        width: 220px

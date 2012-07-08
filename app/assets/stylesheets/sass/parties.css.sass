@@ -176,6 +176,10 @@ body.parties_show
             background: $light_bg_color
             cursor: pointer
             +clearfix
+            .comments
+              a
+                +label
+                float: left
             ul
               li.task
                 p
@@ -223,8 +227,7 @@ body.parties_show
                     float: left
                     line-height: 22px
                     padding: 0 10px
-                    font-weight: bold
-                    text-decoration: none
+                    +box-shadow(rgba(255, 255, 255, .6) 0 0 1px inset, rgba(0, 0, 0, .2) 0 1px 1px)
                 .hold
                   a
                     +border-radius(4px 0 0 4px)
@@ -235,39 +238,7 @@ body.parties_show
                     border-left: $label_text_shadow 1px solid
               
           .activities
-            clear: both
-            +clearfix
-            .add
-              padding: 10px 10px 0 10px
-            ul
-              li
-                +clearfix
-                border-bottom: dotted #666 1px
-                display: block
-                padding: 14px 10px
-                &:first-child
-                  padding: 14px 10px
-                &:last-child
-                  border: none
-                .icon
-                  float: left
-                  padding: 0 8px 0 0
-                  a
-                    width: 36px
-                    height: 36px
-                    padding: 3px
-                    background: rgba(0, 0, 0, .2)
-                    +border-radius(21px)
-                    display: block
-                    +box-shadow(#495051 0 1px 0)
-                    img
-                      width: 36px
-                      height: auto
-                      +border-radius(18px)
-                p
-                  font-size: 13px
-                  line-height: 1.6
-              
+            +activities
         .backlog
           clear: both
           +clearfix
@@ -275,6 +246,7 @@ body.parties_show
             +label
           .add
             padding: 10px 10px 10px 10px
+            background: #141f35
             +clearfix
             a
               display: block
@@ -290,11 +262,27 @@ body.parties_show
             form.new_task
               clear: both
               textarea
-                width: 100%
+                width: 100% !important
                 padding: 0
                 +border-radius(4px)
-                font-size: 14px
-                margin: 10px 0 0 0
+                background: $light_bg_color
+                font-size: 13px
+                margin: 0 0 10px 0
+              input
+                +label
+                text:
+                  align: center
+                width: 80px
+                line-height: 28px
+                margin: 0 auto
+                padding: 0
+                border: none
+                +border-radius(4px)
+          .activities
+            .activity
+              clear: both
+              padding: 0 0 14px 0
+              +clearfix
           .close
             display: none
           ul
@@ -365,6 +353,9 @@ body.parties_show
               p
                 font-size: 13px
                 line-height: 1.6
+              .comments
+                a
+                  +label
         .done
           clear: both
           +clearfix
@@ -422,3 +413,5 @@ body.parties_show
                 a
                   display: block
                   float: left
+              .activities
+                +activities
