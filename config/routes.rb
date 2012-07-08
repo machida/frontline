@@ -3,7 +3,7 @@ Frontline::Application.routes.draw do
   get "settings/edit"   => "settings#edit"
   put "settings/update" => "settings#update"
 
-  resources :activities
+  resources :comments
 
   resources :joins
 

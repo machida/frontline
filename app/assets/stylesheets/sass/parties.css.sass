@@ -239,6 +239,41 @@ body.parties_show
               
           .activities
             +activities
+          .comments
+            clear: both
+            +clearfix
+            .add
+              padding: 10px 10px 0 10px
+            ul
+              li
+                +clearfix
+                border-bottom: dotted #666 1px
+                display: block
+                padding: 14px 10px
+                &:first-child
+                  padding: 14px 10px
+                &:last-child
+                  border: none
+                .icon
+                  float: left
+                  padding: 0 8px 0 0
+                  a
+                    width: 36px
+                    height: 36px
+                    padding: 3px
+                    background: rgba(0, 0, 0, .2)
+                    +border-radius(21px)
+                    display: block
+                    +box-shadow(#495051 0 1px 0)
+                    img
+                      width: 36px
+                      height: auto
+                      +border-radius(18px)
+                p
+                  font-size: 13px
+                  line-height: 1.6
+              
+>>>>>>> 3a87896a141829a5ffa448b42fb14071609b7eec
         .backlog
           clear: both
           +clearfix

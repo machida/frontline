@@ -37,3 +37,14 @@
   - when "done"
     - if user_signed_in? && current_user == task.user
       %p.redo= link_to "redo", redo_party_task_path(@party, task), :remote => true
+
+  - if user_signed_in?
+    .add
+      = form_tag "/comments", :remote => true do
+        = hidden_field_tag :task_id, task.id
+        = text_area_tag :content, nil, :rows => 3, :cols => 15, :id => "new_comment_#{dom_id(task)}"
+        = submit_tag "new comment"
+  .comments
+    %ul
+      = render task.comments
+>>>>>>> 3a87896a141829a5ffa448b42fb14071609b7eec

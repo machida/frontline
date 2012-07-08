@@ -13,14 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20120527040434) do
 
-  create_table "activities", :force => true do |t|
-    t.integer  "task_id"
-    t.integer  "user_id"
-    t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
     t.string   "provider"
@@ -34,6 +26,14 @@ ActiveRecord::Schema.define(:version => 20120527040434) do
     t.string   "last_tid"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "joins", :force => true do |t|

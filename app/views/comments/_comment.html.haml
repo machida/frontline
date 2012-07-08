@@ -1,0 +1,7 @@
+= content_tag_for :li, comment, :class => "comment" do
+  .icon
+    %a{:href => ""}
+      = image_tag comment.user.image_url(:thumb), alt: comment.user.name, class: "avatar size128"
+  %p= nl2br comment.content
+  - if user_signed_in? && current_user == comment.user
+    %p= link_to "delete", comment_path(comment), :method => :delete, :remote => true

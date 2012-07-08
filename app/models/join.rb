@@ -1,10 +1,28 @@
 # encoding: utf-8
-class Join < ActiveRecord::Base
-  attr_accessible :party_id, :user_id, :state, :end_hour, :end_min, :help
-  belongs_to :party
-  belongs_to :user
 
-  validates :party_id, :user_id, :presence => true
+# == Schema Information
+#
+# Table name: joins
+#
+#  id          :integer         not null, primary key
+#  user_id     :integer
+#  party_id    :integer
+#  state       :string(255)     default("chore")
+#  started_at  :datetime
+#  finished_at :datetime
+#  end_hour    :integer         default(0)
+#  end_min     :integer         default(0)
+#  created_at  :datetime        not null
+#  updated_at  :datetime        not null
+#
+
+class Join < ActiveRecord::Base
+  attr_accessible :user_id, :party_id, :state, :started_at, :finished_at, :end_hour, :end_min
+
+  belongs_to :user
+  belongs_to :party
+
+  validates :user_id, :party_id, :presence => true
   validates :party_id, :uniqueness => {:scope => :user_id}
 
   STATE = [
