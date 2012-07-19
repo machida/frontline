@@ -14,29 +14,25 @@
           = submit_tag "new comment"
   %p
     %span.comments
-      4
+      0
     = nl2br task.content
+
   - if task.state == "done"
     .times
       %span.working
         = distance_of_time_in_words(task.started_at, task.finished_at)
       %span.finish
         = task.finished_at.to_s(:time)
-  - case task.state
-  - when "current"
-    - if user_signed_in? && current_user == task.user
-      .actions
-        %ul
+
+  - if user_signed_in? && current_user == task.user
+    .actions
+      %ul
+        - case task.state
+        - when "current"
           %li.hold= link_to "hold", hold_party_task_path(@party, task), :remote => true
           %li.finish= link_to "finish", finish_party_task_path(@party, task), :remote => true
-  - when "backlog"
-    - if user_signed_in? && current_user == task.user
-      .actions
-        %ul
+        - when "backlog"
           %li.start= link_to "start", start_party_task_path(@party, task), :remote => true
           %li.delete= link_to "delete", party_task_path(@party, task), :method => :delete, :remote => true
-  - when "done"
-    - if user_signed_in? && current_user == task.user
-      .actions
-        %ul
+        - when "done"
           %li.redo= link_to "redo", redo_party_task_path(@party, task), :remote => true
