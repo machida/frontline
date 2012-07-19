@@ -13,8 +13,8 @@
           = text_area_tag :content, nil, :rows => 3, :cols => 15, :id => "new_comment_#{dom_id(task)}"
           = submit_tag "new comment"
   %p
-    %span.comments
-      0
+    %span.comments{"data-id" => dom_id(task)}
+      = task.comments.count
     = nl2br task.content
 
   - if task.state == "done"

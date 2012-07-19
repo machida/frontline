@@ -19,7 +19,7 @@ class Task < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :party
-  has_many :comments
+  has_many :comments, :dependent => :destroy
 
   validates :user_id, :content, :presence => true
 

@@ -1,1 +1,2 @@
 $('#<%= dom_id(@comment) %>').remove().fadeOut()
+$('#<%= dom_id(@comment.task) %> span.comments').html("<%= @comment.task.comments.count %>")
